@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import LazyImage from '../components/LazyImage.astro';
+import ResonanceCTA from '../components/ResonanceCTA.astro';
+import { CONTENT } from '../data/content';
+import { Icon } from 'lucide-react';
+
+// ImageObject Schema for Projects
+const projectsSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": CONTENT.projects.map((proj, idx) => ({
+      "@type": "ImageObject",
+      "contentUrl": `https://gaertenvonhoerschelmann.de${idx === 0 ? "/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg" : "/img/Schrittplatten-Wasservorhang-rote-Waende-Holzdeck-Pergola-Aussenkueche-Wasserbecken-Liegen-Rasen-Schaugarten-scaled.jpg"}`,
+      "name": proj.title,
+      "description": proj.phases.challenge,
+      "locationCreated": {
+          "@type": "Place",
+          "name": proj.location
+      }
+  }))
+});
+---
+
+<Layout title="Werkschau | Gaerten von Hoerschelmann" schema={projectsSchema}>
+    <Navigation currentPath="/werkschau" />
+
+    <main class="pt-20">
+        <section class="section-padding px-6 animate-in fade-in">
+            <div class="max-content">
+                <h2 class="clamp-h1 font-serif italic mb-16 md:mb-24 reveal-obs text-center lg:text-left">Werkschau</h2>
+                <div class="grid gap-24 md:gap-40">
+                    {CONTENT.projects.map((proj, idx) => (
+                        <div class="bg-[#1A1A1A] text-white shadow-premium grid lg:grid-cols-12 reveal-obs overflow-hidden rounded-sm project-card" data-index={idx}>
+                            <article class="lg:col-span-5 p-5 md:p-12 lg:p-16 flex flex-col justify-between order-2 lg:order-1 text-left">
+                                <div class="space-y-5 md:space-y-8">
+                                    <span class="text-[#D2B48C] text-[10px] uppercase tracking-[0.5em] font-black italic">{proj.location}</span>
+                                    <h3 class="clamp-h2 font-serif italic leading-tight">{proj.title}</h3>
+                                    <div class="flex flex-wrap gap-2 md:gap-3">
+                                        {proj.tags.map(t => <span class="text-[8px] border border-white/10 px-2 py-0.5 md:px-3 md:py-1 uppercase tracking-widest text-white/40">{t}</span>)}
+                                    </div>
+                                    <div class="flex gap-4 md:gap-6 border-b border-white/5 pb-4 md:pb-6 overflow-x-auto no-scrollbar">
+                                        {['challenge', 'vision', 'result'].map(p => (
+                                            <button
+                                                class={`phase-btn text-[9px] uppercase tracking-[0.3em] font-black transition-all whitespace-nowrap ${p === 'challenge' ? 'text-[#D2B48C]' : 'opacity-20 hover:opacity-100'}`}
+                                                data-phase={p}
+                                                data-project={idx}
+                                                onclick={`
+                                                    const card = this.closest('.project-card');
+                                                    card.querySelectorAll('.phase-btn').forEach(b => {
+                                                        b.classList.remove('text-[#D2B48C]');
+                                                        b.classList.add('opacity-20');
+                                                    });
+                                                    this.classList.remove('opacity-20');
+                                                    this.classList.add('text-[#D2B48C]');
+
+                                                    const texts = card.querySelectorAll('.phase-text');
+                                                    texts.forEach(t => t.classList.add('hidden'));
+                                                    card.querySelector('.phase-text-' + this.dataset.phase).classList.remove('hidden');
+                                                `}
+                                            >{p}</button>
+                                        ))}
+                                    </div>
+                                    <div class="min-h-[120px] md:min-h-[140px] text-white/50 italic text-sm md:text-lg font-light leading-relaxed animate-in fade-in duration-700">
+                                        <div class={`phase-text phase-text-challenge block`}>{proj.phases.challenge}</div>
+                                        <div class={`phase-text phase-text-vision hidden`}>{proj.phases.vision}</div>
+                                        <div class={`phase-text phase-text-result hidden`}>{proj.phases.result}</div>
+                                    </div>
+                                </div>
+                                <div class="magnetic-wrap pt-8 border-t border-white/5 mt-8">
+                                    <button
+                                        class="flex items-center gap-4 md:gap-6 text-[#D2B48C] uppercase text-[10px] font-black tracking-widest transition-all hover:text-white toggle-sketch-btn"
+                                        onmouseenter="window.setCursorMode(true, 'Wechsel')"
+                                        onmouseleave="window.setCursorMode(false)"
+                                        onclick={`
+                                            const card = this.closest('.project-card');
+                                            const imgContainer = card.querySelector('.project-image-container');
+                                            const img = imgContainer.querySelector('img');
+                                            const sketchOverlay = imgContainer.querySelector('.sketch-overlay');
+
+                                            if (img.classList.contains('opacity-20')) {
+                                                img.classList.remove('opacity-20', 'scale-110');
+                                                img.classList.add('opacity-100');
+                                                sketchOverlay.classList.add('hidden');
+                                                this.innerHTML = '<i data-lucide="pen-tool" width="18" height="18"></i> Die Partitur';
+                                            } else {
+                                                img.classList.add('opacity-20', 'scale-110');
+                                                img.classList.remove('opacity-100');
+                                                sketchOverlay.classList.remove('hidden');
+                                                this.innerHTML = '<i data-lucide="image" width="18" height="18"></i> Das Werk';
+                                            }
+                                            lucide.createIcons();
+                                        `}
+                                    >
+                                        <i data-lucide="pen-tool" width="18" height="18"></i> Die Partitur
+                                    </button>
+                                </div>
+                            </article>
+                            <div class="lg:col-span-7 relative bg-black overflow-hidden order-1 lg:order-2 aspect-[16/10] lg:aspect-auto project-image-container" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)">
+                                <LazyImage
+                                    src={idx === 0 ? "/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg" : "/img/Schrittplatten-Wasservorhang-rote-Waende-Holzdeck-Pergola-Aussenkueche-Wasserbecken-Liegen-Rasen-Schaugarten-scaled.jpg"}
+                                    aspect="aspect-square lg:h-full"
+                                    autoColor={true}
+                                    className="transition-all duration-[2.5s] opacity-100 hover:scale-[1.01]"
+                                    alt={`Projektansicht: ${proj.title}`}
+                                />
+                                <div class="sketch-overlay absolute inset-0 flex items-center justify-center text-[#D2B48C] font-serif italic text-3xl md:text-5xl animate-in zoom-in text-center px-10 pointer-events-none drop-shadow-xl hidden">Skizze Gaerten von Hoerschelmann</div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+        <ResonanceCTA
+            title="Ihr Projekt als nächste Partitur"
+            subtitle="Jeder Garten in unserer Werkschau begann mit einem leeren Blatt Papier. Lassen Sie uns Ihre Geschichte gemeinsam schreiben."
+            ctaLink="/kontakt"
+        />
+    </main>
+    <Footer />
+
+    <script>
+        import { createIcons, PenTool, Image } from 'lucide';
+        createIcons({ icons: { PenTool, Image } });
+    </script>
+</Layout>

@@ -1,0 +1,57 @@
+<footer class="bg-white border-t border-gray-100 section-padding px-6">
+    <div class="max-content">
+        <div class="grid lg:grid-cols-12 gap-24 items-start text-left">
+            <section class="lg:col-span-6 flex flex-col space-y-20">
+                <span class="font-serif italic text-4xl md:text-6xl leading-tight">Gaerten von Hoerschelmann</span>
+                <div class="grid sm:grid-cols-2 gap-20 text-gray-400 italic text-lg font-light leading-relaxed">
+                    <address class="not-italic space-y-8">
+                        <p class="text-[10px] uppercase font-black text-[#A0522D] tracking-widest">Hamburg Architektur</p>
+                        <div class="space-y-2">
+                            <a href="https://maps.google.com/?q=Lademannbogen+41,+22339+Hamburg" target="_blank" class="hover:text-[#A0522D] transition-colors" onmouseenter="window.setCursorMode(true, 'Maps')" onmouseleave="window.setCursorMode(false)">Lademannbogen 41<br/>22339 Hamburg</a>
+                            <a href="mailto:svh@gaertenvonhoerschelmann.de" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="text-[#1A1A1A] mt-6 font-bold block hover:underline">svh@gaertenvonhoerschelmann.de</a>
+                        </div>
+                    </address>
+                    <address class="not-italic space-y-8">
+                        <p class="text-[10px] uppercase font-black text-[#A0522D] tracking-widest">Bargfeld Gartenbau</p>
+                        <div class="space-y-2">
+                            <a href="https://maps.google.com/?q=Hartwigsahl+15,+23863+Bargfeld-Stegen" target="_blank" class="hover:text-[#A0522D] transition-colors" onmouseenter="window.setCursorMode(true, 'Maps')" onmouseleave="window.setCursorMode(false)">Hartwigsahl 15<br/>23863 Bargfeld-Stegen</a>
+                            <a href="mailto:post@gaertenvonhoerschelmann.de" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="text-[#1A1A1A] mt-6 font-bold block hover:underline">post@gaertenvonhoerschelmann.de</a>
+                        </div>
+                    </address>
+                </div>
+            </section>
+            <div class="lg:col-span-6 grid grid-cols-2 gap-16 border-l border-gray-50 pl-16 lg:pl-24">
+                <nav class="space-y-12">
+                    <span class="text-[10px] uppercase font-black text-[#A0522D] tracking-widest">Navigation</span>
+                    <div class="flex flex-col gap-8 text-[11px] uppercase text-gray-400 font-bold tracking-widest">
+                        <div class="magnetic-wrap"><a href="/" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="hover:text-[#A0522D] transition-colors text-left">Ouvertüre</a></div>
+                        <div class="magnetic-wrap"><a href="/philosophie" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="hover:text-[#A0522D] transition-colors text-left">Der Komponist</a></div>
+                        <div class="magnetic-wrap"><a href="/impressum" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="hover:text-[#A0522D] transition-colors text-left">Impressum</a></div>
+                    </div>
+                </nav>
+                <section class="space-y-12">
+                    <div>
+                        <span class="text-[10px] uppercase font-black text-[#A0522D] tracking-widest mb-8 block">Verbindung</span>
+                        <div class="flex gap-6 text-gray-300">
+                            <div class="magnetic-wrap"><a href="#" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="hover:text-[#A0522D] transition-colors" aria-label="Instagram"><i data-lucide="instagram" width="20" height="20"></i></a></div>
+                            <div class="magnetic-wrap"><a href="#" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="hover:text-[#A0522D] transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" width="20" height="20"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="pt-8 border-t border-gray-50">
+                        <span class="text-[10px] uppercase font-black text-[#A0522D] tracking-widest mb-6 block">Regionen</span>
+                        <ul class="flex flex-col gap-8 text-[11px] uppercase text-gray-300 font-bold tracking-widest"><li>Hamburg</li><li>Sylt</li><li>Kitzbühel</li></ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="mt-32 pt-16 border-t border-gray-50 flex flex-col sm:flex-row justify-between items-center gap-10 text-[9px] uppercase tracking-[0.8em] text-gray-300 font-black">
+            <span>© {new Date().getFullYear()} Gaerten von Hoerschelmann GmbH</span>
+            <span class="opacity-60">webAION</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    import { createIcons, Instagram, Linkedin } from 'lucide';
+    createIcons({ icons: { Instagram, Linkedin } });
+</script>

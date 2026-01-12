@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import ResonanceCTA from '../components/ResonanceCTA.astro';
+import ExpertiseComponent from '../components/Expertise.astro';
+
+// Service Schema
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Landschaftsarchitektur",
+  "provider": { "@type": "LocalBusiness", "name": "Gaerten von Hoerschelmann" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Kernkompetenzen",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landschaftsarchitektonische Vision" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Präzises Handwerk im Gartenbau" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Botanische Kuratierung & Pflege" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Spezialgebiet: Bauen am Hang" } }
+    ]
+  }
+});
+---
+
+<Layout title="Expertise | Gaerten von Hoerschelmann" schema={serviceSchema}>
+    <Navigation currentPath="/expertise" />
+    <main class="pt-20">
+        <ExpertiseComponent />
+        <ResonanceCTA
+            title="Ihre Vision konkretisieren"
+            subtitle="Welche dieser Disziplinen erfordert Ihr Grundstück? Lassen Sie uns gemeinsam die technische und ästhetische Machbarkeit prüfen."
+            ctaLink="/kontakt"
+        />
+    </main>
+    <Footer />
+</Layout>

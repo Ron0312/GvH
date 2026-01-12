@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import ResonanceCTA from '../components/ResonanceCTA.astro';
+import { CONTENT } from '../data/content';
+import { Icon } from 'lucide-react';
+---
+
+<Layout title="Standorte | Gaerten von Hoerschelmann">
+    <Navigation currentPath="/standorte" />
+
+    <main class="pt-20">
+        <section class="section-padding px-6 animate-in fade-in">
+            <div class="max-content">
+                <span class="text-[#A0522D] text-[10px] uppercase tracking-[1em] block mb-12 font-bold italic text-center">Präsenz</span>
+                <h2 class="clamp-h1 font-serif italic mb-16 md:mb-32 reveal-obs text-center">Fokusregionen</h2>
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-20">
+                    {CONTENT.locations.map((loc, i) => (
+                        <div class="bg-white p-12 md:p-20 border border-gray-100 shadow-sm reveal-obs flex flex-col justify-between group hover:border-[#A0522D] transition-colors text-left border-l-4">
+                            <div class="space-y-8">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-5xl md:text-7xl font-serif italic leading-none">{loc.city}</h3>
+                                    <a href={loc.maps} target="_blank" aria-label={`Anfahrt ${loc.city}`} onmouseenter="window.setCursorMode(true, 'Karte')" onmouseleave="window.setCursorMode(false)">
+                                        <i data-lucide="map-pin" width="32" height="32" class="text-[#D2B48C] opacity-40 group-hover:opacity-100 transition-opacity"></i>
+                                    </a>
+                                </div>
+                                <span class="text-[#A0522D] text-[10px] uppercase tracking-[0.4em] font-black block">{loc.focus}</span>
+                                <p class="text-gray-400 text-xl font-light italic leading-relaxed">{loc.desc}</p>
+                            </div>
+                            <div class="mt-16 pt-10 border-t border-gray-50 flex items-center gap-6">
+                                <div class="magnetic-wrap">
+                                    <a href="/kontakt" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="text-[10px] uppercase font-black tracking-widest text-[#1A1A1A] hover:text-[#A0522D] transition-colors">Vision anfragen</a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+        <ResonanceCTA
+            title="Expertise in Ihrer Region"
+            subtitle="Wir sind dort präsent, wo außergewöhnliche Landschaften entstehen. Lassen Sie uns über Ihren Standort sprechen."
+            ctaLink="/kontakt"
+        />
+    </main>
+    <Footer />
+    <script>
+        import { createIcons, MapPin } from 'lucide';
+        createIcons({ icons: { MapPin } });
+    </script>
+</Layout>

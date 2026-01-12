@@ -1,0 +1,7 @@
+---
+const { className = "" } = Astro.props;
+---
+
+<span class={`text-reveal-mask ${className}`}>
+    <span class="text-reveal-content"><slot /></span>
+</span>

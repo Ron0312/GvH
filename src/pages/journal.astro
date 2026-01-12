@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import LazyImage from '../components/LazyImage.astro';
+import ResonanceCTA from '../components/ResonanceCTA.astro';
+import { CONTENT } from '../data/content';
+---
+
+<Layout title="Journal | Gaerten von Hoerschelmann">
+    <Navigation currentPath="/journal" />
+
+    <main class="pt-20">
+        <section class="section-padding px-6 animate-in fade-in">
+            <div class="max-content">
+                <span class="text-[#A0522D] text-[10px] uppercase tracking-[1em] block mb-10 font-bold italic text-center">Resonanzraum</span>
+                <h2 class="clamp-h1 font-serif mb-20 md:mb-40 reveal-obs italic text-center">Kuratierte Einblicke</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-20 mb-32 md:mb-64">
+                    {CONTENT.journal.map((post, i) => (
+                        <article class="group cursor-pointer space-y-10 reveal-obs text-left" onmouseenter="window.setCursorMode(true, 'Lesen')" onmouseleave="window.setCursorMode(false)">
+                            <LazyImage src={post.img} autoColor={true} aspect="aspect-[16/10]" className="shadow-lg rounded-sm hover:scale-[1.02] transition-transform duration-700" alt={post.title} />
+                            <div class="space-y-5">
+                                <span class="text-[9px] uppercase font-black text-[#A0522D] tracking-widest">{post.cat}</span>
+                                <h3 class="text-2xl md:text-3xl font-serif italic group-hover:text-[#A0522D] transition-colors leading-snug">{post.title}</h3>
+                                <p class="text-gray-500 italic text-lg font-light leading-relaxed">{post.excerpt}</p>
+                                <div class="w-16 h-[1px] bg-[#A0522D] group-hover:w-full transition-all duration-700 mt-8"></div>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+
+                <div class="bg-[#1A1A1A] p-12 md:p-24 lg:p-40 text-center relative overflow-hidden reveal-obs rounded-sm shadow-2xl">
+                    <div class="absolute inset-0 opacity-10 pointer-events-none">
+                        <img src="/img/Wohnen-Garten-Schwimmteich-Daemmerung-Lounge-Licht-Gaerten-des-Jahres-scaled.jpg" class="w-full h-full object-cover grayscale" alt="Vision Paper background" />
+                    </div>
+                    <div class="relative z-10 max-w-2xl mx-auto space-y-16">
+                        <span class="text-[#D2B48C] text-[10px] uppercase tracking-[0.5em] font-black italic">Exklusive Publikation</span>
+                        <h3 class="text-3xl md:text-6xl text-white font-serif italic leading-tight">Das Vision Paper für zeitlose Gartenkunst</h3>
+                        <p class="text-white/40 text-lg md:text-xl font-light italic leading-relaxed">Sichern Sie sich unseren diskreten Leitfaden über Klima-Resilienz, Material-Ehrlichkeit und die Dramaturgie des Lichts.</p>
+                        <form class="flex flex-col sm:flex-row gap-6 pt-10" onsubmit="event.preventDefault();">
+                            <input type="email" placeholder="IHRE E-MAIL" class="bg-white/5 border border-white/10 px-10 py-6 text-[10px] text-white uppercase tracking-widest outline-none focus:border-[#D2B48C] transition-all flex-1" />
+                            <div class="magnetic-wrap h-full">
+                                <button onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="bg-[#D2B48C] text-black px-14 py-6 uppercase text-[10px] font-black tracking-widest hover:bg-white transition-all h-full w-full sm:w-auto">Anfordern</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <ResonanceCTA
+            title="Gartenkunst erleben"
+            subtitle="Wahre Inspiration findet sich im Dialog. Lassen Sie uns Ihre persönlichen Refugien entwerfen."
+            ctaLink="/kontakt"
+        />
+    </main>
+    <Footer />
+</Layout>
