@@ -1,0 +1,166 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+    description?: string;
+    schema?: string; // Optional custom schema prop
+}
+
+const { title, description = "Meisterhafte Gartenarchitektur und Speziallösungen für komplexe Hanglagen und exklusive Refugien.", schema } = Astro.props;
+
+// Global Schema (LocalBusiness)
+const globalSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Gaerten von Hoerschelmann",
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Lademannbogen 41",
+    "addressLocality": "Hamburg",
+    "postalCode": "22339",
+    "addressCountry": "DE"
+  },
+  "url": "https://gaertenvonhoerschelmann.de",
+  "founder": {
+    "@type": "Person",
+    "name": "Sören von Hoerschelmann"
+  },
+  "image": "https://gaertenvonhoerschelmann.de/img/Wohnen-Garten-Blick-aus-der-Terrassentuer-Rahmen-Parrotie-Eisenholz-Gaerten-des-Jahres-scaled.jpg",
+  "priceRange": "$$$"
+});
+---
+
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=playfair-display:400,400i,700|inter:200,300,400,600,700" rel="stylesheet" />
+
+        <!-- Open Graph Tags -->
+        <meta property="og:title" content={title}>
+        <meta property="og:description" content={description}>
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <!-- Structured Data -->
+        <script type="application/ld+json" set:html={globalSchema}></script>
+        {schema && <script type="application/ld+json" set:html={schema}></script>}
+
+		<title>{title}</title>
+
+        <script>
+             // Lenis
+            import Lenis from '@studio-freight/lenis'
+
+            const lenis = new Lenis({
+                duration: 1.4,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            })
+
+            function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+            }
+
+            requestAnimationFrame(raf)
+
+            // Custom Cursor
+            if (window.matchMedia("(min-width: 1024px)").matches) {
+                const cursorDot = document.createElement('div');
+                cursorDot.classList.add('custom-cursor');
+                cursorDot.id = 'cursor-dot';
+
+                const cursorOutline = document.createElement('div');
+                cursorOutline.classList.add('custom-cursor-outline');
+                cursorOutline.id = 'cursor-outline';
+
+                const cursorText = document.createElement('div');
+                cursorText.classList.add('cursor-text');
+                cursorText.id = 'cursor-text';
+                cursorOutline.appendChild(cursorText);
+
+                document.body.appendChild(cursorDot);
+                document.body.appendChild(cursorOutline);
+
+                let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0, outX = 0, outY = 0;
+
+                window.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                const animateCursor = () => {
+                    dotX += (mouseX - dotX) * 0.15;
+                    dotY += (mouseY - dotY) * 0.15;
+                    outX += (mouseX - outX) * 0.08;
+                    outY += (mouseY - outY) * 0.08;
+
+                    cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+                    cursorOutline.style.transform = `translate3d(${outX}px, ${outY}px, 0) translate(-50%, -50%)`;
+
+                    requestAnimationFrame(animateCursor);
+                };
+                requestAnimationFrame(animateCursor);
+            }
+
+            // Global helpers for cursor interaction
+            window.setCursorMode = (active, text = "Details") => {
+                if(window.innerWidth < 1024) return;
+                const out = document.getElementById('cursor-outline');
+                const txt = document.getElementById('cursor-text');
+                if(out && txt) {
+                    if(active) {
+                        out.style.width = '70px';
+                        out.style.height = '70px';
+                        out.style.background = 'rgba(210, 180, 140, 0.08)';
+                        txt.style.opacity = '1';
+                        if(text) txt.innerText = text;
+                    } else {
+                        out.style.width = '40px';
+                        out.style.height = '40px';
+                        out.style.background = 'transparent';
+                        txt.style.opacity = '0';
+                    }
+                }
+            };
+        </script>
+	</head>
+	<body>
+        <div id="preloader" class="preloader">
+            <div class="loader-logo">Gaerten von Hoerschelmann</div>
+            <div class="loader-bar-container">
+                <div class="loader-bar-fill"></div>
+            </div>
+        </div>
+
+		<slot />
+
+        <script>
+            // Preloader logic
+            window.addEventListener('load', () => {
+                const loader = document.getElementById('preloader');
+                setTimeout(() => {
+                    if(loader) loader.classList.add('fade-out');
+                }, 1200);
+            });
+
+            // Intersection Observer for reveals
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, { threshold: 0.1 });
+
+            setTimeout(() => {
+                document.querySelectorAll('.reveal-obs').forEach(el => observer.observe(el));
+            }, 100);
+        </script>
+	</body>
+</html>

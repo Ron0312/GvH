@@ -1,0 +1,41 @@
+---
+const { src, alt, className = "", aspect = "aspect-square", autoColor = false } = Astro.props;
+---
+
+<div class={`lazy-image-container relative overflow-hidden ${aspect} ${className} img-placeholder`} data-src={src} data-autocolor={autoColor}>
+    <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        alt={alt}
+        class={`w-full h-full object-cover transition-all duration-1000 opacity-0 scale-110 lazy-image`}
+        loading="lazy"
+    />
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const container = entry.target;
+                const img = container.querySelector('img');
+                const src = container.getAttribute('data-src');
+                const autoColor = container.getAttribute('data-autocolor') === 'true';
+
+                if (img && src) {
+                    img.src = src;
+                    img.onload = () => {
+                        container.classList.remove('img-placeholder');
+                        img.classList.remove('opacity-0', 'scale-110');
+                        img.classList.add('opacity-100', 'scale-100');
+
+                        if (autoColor) {
+                            img.classList.add('animate-color-reveal');
+                        }
+                    };
+                }
+                observer.unobserve(container);
+            }
+        });
+    }, { threshold: 0.05 });
+
+    document.querySelectorAll('.lazy-image-container').forEach(el => observer.observe(el));
+</script>

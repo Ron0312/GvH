@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.tsx';
+---
+
+<Layout title="Concierge Service | Gaerten von Hoerschelmann">
+    <Navigation currentPath="/kontakt" />
+
+    <main class="pt-20">
+        <section class="section-padding px-6 animate-in fade-in duration-1000">
+            <div class="max-content">
+                <header class="text-center mb-20 md:mb-40 reveal-obs">
+                    <span class="text-[#A0522D] text-[10px] uppercase tracking-[1em] block mb-8 font-bold italic">Concierge Service</span>
+                    <h2 class="clamp-h2 font-serif italic mb-8">Ein Dialog beginnen</h2>
+                    <p class="text-xl md:text-2xl text-gray-400 italic max-w-2xl mx-auto font-light leading-relaxed text-center">
+                        Um den Geist Ihres Ortes zu verstehen, bedarf es einer ersten Einstimmung mit Sören von Hoerschelmann.
+                    </p>
+                </header>
+
+                <ContactForm client:visible />
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

@@ -1,0 +1,53 @@
+---
+import TextReveal from './TextReveal.astro';
+import { Icon } from 'lucide-react';
+---
+
+<section class="relative h-screen w-full bg-[#1A1A1A] flex items-center justify-center text-white overflow-hidden">
+    <div id="hero-bg" class="absolute inset-0 w-full h-full opacity-60 scale-105 will-change-transform">
+        <img src="/img/Wohnen-Garten-Blick-aus-der-Terrassentuer-Rahmen-Parrotie-Eisenholz-Gaerten-des-Jahres-scaled.jpg" class="w-full h-full object-cover animate-subtle-zoom" alt="Hero Landschaftskomposition" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1A1A1A]/40 via-transparent to-[#1A1A1A]"></div>
+    <div id="hero-text" class="relative z-10 text-center max-content px-6 will-change-transform">
+        <div class="reveal-obs mb-2 md:mb-4"><TextReveal className="clamp-h1 font-serif">Die Partitur Ihres</TextReveal></div>
+        <div class="reveal-obs"><TextReveal className="clamp-h1 font-serif italic text-[#D2B48C]">Lebensraums</TextReveal></div>
+        <p class="text-sm md:text-xl font-light italic opacity-60 mt-6 md:mt-12 reveal-obs max-w-xl mx-auto leading-relaxed">Gaerten von Hoerschelmann orchestriert den Geist des Ortes zu einem lebendigen Unikat. Wir gestalten nicht nur Gärten, wir erschaffen Resonanzräume.</p>
+        <div class="mt-10 md:mt-16 reveal-obs flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
+            <div class="magnetic-wrap">
+                <a href="/werkschau" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="inline-block w-full sm:w-auto px-10 md:px-12 py-4 bg-white text-black uppercase text-[10px] font-black tracking-widest hover:bg-[#A0522D] hover:text-white transition-all shadow-premium">Die Werkschau</a>
+            </div>
+            <div class="magnetic-wrap">
+                <a href="/kontakt" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)" class="inline-block w-full sm:w-auto px-10 md:px-12 py-4 border border-white/30 uppercase text-[10px] font-black tracking-widest text-white hover:bg-white hover:text-black transition-all">Ein Dialog beginnen</a>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-hint text-white/20 hidden md:block">
+        <i data-lucide="chevron-down" width="32" height="32"></i>
+    </div>
+</section>
+
+<script>
+    import { createIcons, ChevronDown } from 'lucide';
+    createIcons({ icons: { ChevronDown } });
+
+    // Parallax Effect
+    const heroBg = document.getElementById('hero-bg');
+    const heroText = document.getElementById('hero-text');
+
+    window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (window.innerWidth < 1024) {
+             if (heroBg) { heroBg.style.transform = `translate3d(0, ${y * 0.2}px, 0) scale(1.05)`; }
+             if (heroText) { heroText.style.transform = `translate3d(0, ${y * 0.4}px, 0)`; }
+        }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (heroBg && heroText && window.innerWidth >= 1024) {
+            const moveX = (e.clientX - window.innerWidth/2) * 0.005;
+            const moveY = (e.clientY - window.innerHeight/2) * 0.005;
+            heroBg.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(1.05)`;
+            heroText.style.transform = `translate3d(${-moveX * 1.5}px, ${-moveY * 1.5}px, 0)`;
+        }
+    });
+</script>
