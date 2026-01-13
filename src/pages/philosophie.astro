@@ -60,11 +60,11 @@ import { CONTENT } from '../data/content';
                     <h3 class="text-4xl md:text-6xl font-serif italic text-center mb-24 md:mb-40 leading-tight">Meister der Umsetzung</h3>
                     <div class="max-w-[1000px] mx-auto space-y-40">
                         {CONTENT.team.map((member, i) => (
-                            <div class={`grid md:grid-cols-12 gap-16 items-center reveal-obs ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                                <div class="md:col-span-5 aspect-[4/5] overflow-hidden rounded-sm shadow-xl" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)">
+                            <div class="grid md:grid-cols-12 gap-16 items-center reveal-obs">
+                                <div class={`md:col-span-5 aspect-[4/5] overflow-hidden rounded-sm shadow-xl ${i % 2 !== 0 ? 'md:order-2' : ''}`} onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)">
                                     <LazyImage src={member.img} alt={`Porträt von ${member.name}, ${member.role}`} autoColor={true} aspect="aspect-[4/5]" />
                                 </div>
-                                <div class="md:col-span-7 space-y-10 text-left">
+                                <div class={`md:col-span-7 space-y-10 text-left ${i % 2 !== 0 ? 'md:order-1' : ''}`}>
                                     <div class="space-y-4">
                                         <span class="text-[#A0522D] text-[9px] uppercase tracking-widest font-black">{member.role}</span>
                                         <h4 class="text-4xl md:text-5xl font-serif italic leading-tight">{member.name}</h4>
