@@ -194,18 +194,28 @@ const globalSchema = JSON.stringify({
             </div>
         </div>
 
+        <script is:inline>
+            // Immediate check to prevent flash if already visited
+            if (sessionStorage.getItem('visited')) {
+                const loader = document.getElementById('preloader');
+                if (loader) loader.style.display = 'none';
+            }
+        </script>
+
         <Soundscape client:idle />
 
 		<slot />
 
         <script>
             // Preloader logic
-            // User code: setTimeout(() => setLoading(false), 1200);
             window.addEventListener('load', () => {
                 const loader = document.getElementById('preloader');
-                setTimeout(() => {
-                    if(loader) loader.classList.add('fade-out');
-                }, 1200);
+                if (!sessionStorage.getItem('visited')) {
+                    setTimeout(() => {
+                        if(loader) loader.classList.add('fade-out');
+                        sessionStorage.setItem('visited', 'true');
+                    }, 800);
+                }
             });
 
             // Intersection Observer for reveals

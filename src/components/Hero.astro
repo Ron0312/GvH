@@ -4,19 +4,14 @@ import Quote from './Quote.astro';
 ---
 
 <section class="relative h-screen w-full bg-brand-slate flex items-center justify-center text-white overflow-hidden">
-    <!-- Video Background (Cinemagraph) -->
+    <!-- Hero Image -->
     <div id="hero-bg" class="absolute inset-0 w-full h-full will-change-transform">
         <div class="absolute inset-0 bg-brand-slate/40 z-[1]"></div>
-        <video
-            autoplay
-            muted
-            loop
-            playsinline
+        <img
+            src="/img/Wohnen-Garten-Blick-aus-der-Terrassentuer-Rahmen-Parrotie-Eisenholz-Gaerten-des-Jahres-scaled.jpg"
+            alt="Wohnen im Garten - Blick aus der Terrassentür"
             class="w-full h-full object-cover opacity-80 scale-105 animate-subtle-zoom"
-            poster="/img/Wohnen-Garten-Blick-aus-der-Terrassentuer-Rahmen-Parrotie-Eisenholz-Gaerten-des-Jahres-scaled.jpg"
-        >
-            <source src="https://videos.pexels.com/video-files/855615/855615-hd_1920_1080_24fps.mp4" type="video/mp4" />
-        </video>
+        />
     </div>
 
     <!-- Gradient Overlay -->
