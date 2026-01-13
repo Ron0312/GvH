@@ -229,13 +229,13 @@ export const CONTENT = {
             name: 'Heiko Krämer',
             role: 'Dirigent der Baustelle',
             desc: 'Bauleiter & Meister. Als technisches Korrektiv transformiert er Sörens Partitur mit höchster handwerklicher Präzision und technischem Sachverstand in die Realität.',
-            img: '/img/Gaerten-von-Hoerschelmann-bei-der-Arbeit-kunstvolle-Gaerten-aus-einer-Hand-Gartenarchitekt-Gartenbau-grosse-Pflanzen-Fachleute-Gartenkomponist-active-01-1024x683.jpg'
+            img: '/img/Heiko-Kraemer-Gaerten-von-Hoerschelmann-Techniker-Gartenbau-Bauleiter-Profi-Experte-scaled.jpeg'
         },
         {
             name: 'Sören von Hoerschelmann',
             role: 'Landschaftskomponist',
             desc: 'Seit über 25 Jahren widmet sich Sören von Hoerschelmann der Erschaffung von Außenräumen, die über das Dekorative hinausgehen. Als interdisziplinärer Experte vereint er die präzise Vision des Architekten mit dem tiefen Wissen des Gärtners. Ein Garten ist für ihn eine lebendige Partitur, die mit dem Rhythmus der Jahreszeiten spielt und dem Haus eine Seele gibt.',
-            img: '/img/Soeren-von-Hoerschelmann-Landschaftsarchitekt-Landschaftskomponist-Geschaeftsfuehrer-Gaerten-von-Hoerschelmann-Experte-Planer-Beratung-Planung-scaled.jpg'
+            img: '/img/Soeren-von-Hoerschelmann-Landschaftsarchitekt-Landschaftskomponist-Geschaeftsfuehrer-Gaerten-von-Hoerschelmann-Experte-Planer-Beratung-Planung-Geschaeftsfuehrung-scaled.jpg'
         }
     ],
     process: [
