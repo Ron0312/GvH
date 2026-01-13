@@ -3,8 +3,9 @@ export const CONTENT = {
         {
             id: 'vision',
             title: 'Landschaftsarchitektonische Vision',
+            link: '/expertise/vision',
             tag: 'Konzeption & Design',
-            desc: 'Jede Komposition beginnt mit dem Hören auf das Grundstück. Unsere Vision vereint CAD-gestützte Sichtachsenanalyse mit dem künstlerischen Verständnis für Raumtiefe. Wir entwerfen Partituren für Lebensräume, die Architektur und Natur in ein vollkommenes Gleichgewicht bringen. Wir transformieren statische Barrieren in fließende Kaskaden, die das Haus mit der Landschaft verschmelzen lassen.',
+            desc: 'Jede Komposition beginnt mit dem Hören auf das Grundstück. Unsere Vision vereint CAD-gestützte Sichtachsenanalyse mit dem künstlerischen Verständnis für Raumtiefe. Wir entwerfen Partituren für Lebensräume, die Architektur und Natur in ein vollkommenes Gleichgewicht bringen.',
             details: ['3D-Masterplanung', 'Licht- & Schattenchoreografie', 'Raumakustik-Design', 'Ganzjahres-Ästhetik'],
             img: '/img/Wohnen-Garten-Blick-aus-der-Terrassentuer-Rahmen-Parrotie-Eisenholz-Gaerten-des-Jahres-scaled.jpg',
             alt: 'Architektonische Gartenplanung Hamburg'
@@ -12,8 +13,9 @@ export const CONTENT = {
         {
             id: 'handwerk',
             title: 'Präzises Handwerk im Gartenbau',
+            link: '/expertise/handwerk',
             tag: 'Umsetzung & Statik',
-            desc: 'Wahre Meisterschaft zeigt sich im Detail. Von der geologischen Hangkantensicherung bis zur millimetergenauen Verlegung von Natursteinplatten – unser Team aus Meistern und Technikern garantiert eine Bauqualität, die Generationen überdauert. Wir bauen nicht nur, wir erschaffen statische Kunstwerke.',
+            desc: 'Wahre Meisterschaft zeigt sich im Detail. Von der geologischen Hangkantensicherung bis zur millimetergenauen Verlegung von Natursteinplatten – unser Team aus Meistern und Technikern garantiert eine Bauqualität, die Generationen überdauert.',
             details: ['Komplexe Hangsicherung', 'Exklusiver Mauerwerksbau', 'Smart-Water-Drainage', 'Material-Kuration'],
             img: '/img/Schrittplatten-Wasservorhang-rote-Waende-Holzdeck-Pergola-Aussenkueche-Wasserbecken-Liegen-Rasen-Schaugarten-scaled.jpg',
             alt: 'Hochwertiger Gartenbau Lauenburg'
@@ -21,8 +23,9 @@ export const CONTENT = {
         {
             id: 'botanik',
             title: 'Botanische Kuratierung & Pflege',
+            link: '/expertise/baumschutz',
             tag: 'Kultur & Erhalt',
-            desc: 'Pflanzen sind die Solisten Ihres Gartens. Wir kuratieren klimaresiliente Solitärgehölze und historische Altholzbestände mit botanischer Expertise. Unser Werterhalt-Konzept sichert die Reifung Ihres Gartens über Jahrzehnte hinweg, inklusive diskretem Behördendialog für geschützte Bestände. Ihr Baumbestand ist das wertvollste Zeitdokument Ihres Grundstücks.',
+            desc: 'Pflanzen sind die Solisten Ihres Gartens. Wir kuratieren klimaresiliente Solitärgehölze und historische Altholzbestände mit botanischer Expertise. Unser Werterhalt-Konzept sichert die Reifung Ihres Gartens über Jahrzehnte hinweg.',
             details: ['Solitär-Selektion', 'Großbaumpflanzung', 'Biodiversitäts-Strategie', 'Premium-Pflegemanagement'],
             img: '/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg',
             alt: 'Botanische Kuration und Baumpflege'
@@ -30,12 +33,30 @@ export const CONTENT = {
         {
             id: 'hang',
             title: 'Spezialgebiet: Bauen am Hang',
+            link: '/expertise/hanglage',
             tag: 'Statik & Topographie',
-            desc: 'Extreme Elb-Hanglagen erfordern architektonische Weitsicht. Wir navigieren durch komplexe Entwässerungsprotokolle und sichern geologische Hangkanten statisch ab, um aus schwierigem Terrain Panorama-Erlebnisse zu formen. Wir transformieren statische Barrieren in fließende Kaskaden.',
+            desc: 'Extreme Elb-Hanglagen erfordern architektonische Weitsicht. Wir navigieren durch komplexe Entwässerungsprotokolle und sichern geologische Hangkanten statisch ab, um aus schwierigem Terrain Panorama-Erlebnisse zu formen.',
             details: ['Cortenstahl-Terrassierung', 'Geologische Gutachten', 'Sichtachsen-Optimierung', 'Hangwasser-Management'],
             img: '/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg',
             alt: 'Detailansicht einer Hanggarten-Terrassierung in Lauenburg'
+        },
+        {
+            id: 'licht',
+            title: 'Licht- & Wasserdramaturgie',
+            link: '/expertise/licht-wasser',
+            tag: 'Atmosphäre & Technik',
+            desc: 'Wenn die Dämmerung einsetzt, beginnt der zweite Akt Ihres Gartens. Wir inszenieren Wasserflächen als Spiegel des Himmels und nutzen Licht als subtilen Pinsel, um Tiefenwirkung zu erzeugen.',
+            details: ['Smart-Garden-Lighting', 'Wasserspiele & Spiegelteiche', 'Naturpools', 'Szenische Steuerung'],
+            img: '/img/Wohnen-Garten-Schwimmteich-Daemmerung-Lounge-Licht-Gaerten-des-Jahres-scaled.jpg',
+            alt: 'Lichtkonzept und Wasserspiel im Luxusgarten'
         }
+    ],
+    glossary: [
+        { term: 'Genius Loci', definition: 'Der „Geist des Ortes“. Die unsichtbare Atmosphäre und Geschichte eines Grundstücks, die wir durch unsere Planung sichtbar machen.' },
+        { term: 'Solitär', definition: 'Ein einzelstehendes Gehölz von besonderem Wuchs und Charakter, das als lebende Skulptur den Raum dominiert.' },
+        { term: 'Partitur', definition: 'Unser Begriff für den Pflanzplan. Wie Noten in einem Orchester müssen Blütezeiten, Wuchshöhen und Texturen harmonisch aufeinander abgestimmt sein.' },
+        { term: 'Sichtachse', definition: 'Eine bewusst geplante Blickbeziehung, die das Auge führt und den Garten mit der umgebenden Landschaft oder Architektur verbindet.' },
+        { term: 'Patina', definition: 'Die ästhetische Reifung von Materialien wie Kupfer, Cortenstahl oder Holz. Ein Zeichen von Würde und Zeitlosigkeit.' }
     ],
     journal: [
         { title: 'Die Ästhetik des Verfalls', cat: 'Philosophie', excerpt: 'Warum wahre Perfektion im Garten erst durch die natürliche Patina von Materialien wie Naturstein, Kupfer und Cortenstahl entsteht.', img: '/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg' },

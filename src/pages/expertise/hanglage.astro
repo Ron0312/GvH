@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import ResonanceCTA from '../../components/ResonanceCTA.astro';
+import TextReveal from '../../components/TextReveal.astro';
+import LazyImage from '../../components/LazyImage.astro';
+
+const seoTitle = "Bauen am Hang | Spezialisten für Elbhanglagen | Gaerten von Hoerschelmann";
+const seoDesc = "Meisterhafte Hangsicherung und Terrassierung in Hamburg und Lauenburg. Wir verwandeln schwierige Topographie in spektakuläre Gartenarchitektur.";
+---
+
+<Layout title={seoTitle} description={seoDesc}>
+    <Navigation currentPath="/expertise/hanglage" />
+
+    <main class="pt-32">
+        <section class="max-content px-6 mb-20">
+            <div class="text-[9px] uppercase tracking-widest text-brand-moss mb-8 opacity-60">
+                <a href="/" class="hover:text-brand-dark">Home</a> / <a href="/expertise" class="hover:text-brand-dark">Expertise</a> / Bauen am Hang
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div class="reveal-obs">
+                    <h1 class="clamp-h2 font-serif italic mb-8"><TextReveal>Statik trifft</TextReveal> <br /> <TextReveal className="text-brand-moss">Poesie.</TextReveal></h1>
+                    <p class="text-xl md:text-2xl text-gray-500 font-light leading-relaxed mb-10">
+                        Extreme Elb-Hanglagen erfordern mehr als nur Gartenbau. Sie verlangen nach ingenieurtechnischer Präzision und architektonischer Weitsicht.
+                    </p>
+                    <div class="space-y-6 text-gray-600 font-light">
+                        <p>Ein Hang ist keine Hürde, sondern eine Bühne. Wo andere Probleme sehen – Erosion, Wasserdruck, Unzugänglichkeit – sehen wir das Potenzial für dramatische Sichtachsen und schwebende Ebenen.</p>
+                        <p>Unsere Expertise umfasst komplexe Pfahlgründungen, Cortenstahl-Abfangungen und intelligente Drainagesysteme, die das Wasser nicht nur ableiten, sondern als Gestaltungselement inszenieren.</p>
+                    </div>
+                </div>
+                <div class="reveal-obs lg:mt-20">
+                    <ul class="space-y-8 border-l border-brand-sand/30 pl-8">
+                        {[
+                            { title: 'Geologische Analyse', desc: 'Baugrundgutachten und Standsicherheitsnachweise als Fundament jeder Planung.' },
+                            { title: 'Cortenstahl & Naturstein', desc: 'Massive Stützelemente, die sich organisch in die Landschaft einfügen und Patina ansetzen.' },
+                            { title: 'Logistik am Limit', desc: 'Einsatz von Spezialkränen und seilgesicherten Baggerarbeiten in unzugänglichem Gelände.' },
+                            { title: 'Hangwasser-Management', desc: 'Intelligente Retentionsräume, die Starkregenereignisse puffern.' }
+                        ].map(item => (
+                            <li>
+                                <h3 class="font-serif text-xl italic mb-2 text-brand-dark">{item.title}</h3>
+                                <p class="text-sm text-gray-500">{item.desc}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full h-[60vh] md:h-[80vh] relative mb-20 reveal-obs">
+             <LazyImage
+                src="/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg"
+                className="w-full h-full"
+                aspect="h-full"
+                alt="Hanggarten Lauenburg Cortenstahl"
+            />
+            <div class="absolute bottom-8 left-8 bg-white/90 backdrop-blur p-6 max-w-sm hidden md:block">
+                <span class="block text-[8px] uppercase tracking-widest mb-2 font-bold text-brand-moss">Case Study: Lauenburg</span>
+                <p class="font-serif italic text-lg">„Der 45° Hang wurde durch Kaskaden bewohnbar gemacht.“</p>
+            </div>
+        </section>
+
+        <ResonanceCTA
+            title="Herausforderung Hang?"
+            subtitle="Lassen Sie uns die Statik sichern und den Ausblick befreien."
+            ctaLink="/kontakt"
+        />
+    </main>
+    <Footer />
+</Layout>

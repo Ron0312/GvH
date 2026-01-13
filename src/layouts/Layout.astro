@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Soundscape from '../components/Soundscape';
 
 interface Props {
 	title: string;
@@ -12,7 +13,7 @@ const { title, description = "Meisterhafte Gartenarchitektur und Speziallösunge
 // Global Schema (LocalBusiness)
 const globalSchema = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "LandscapeArchitect",
   "name": "Gaerten von Hoerschelmann",
   "description": description,
   "address": {
@@ -22,13 +23,21 @@ const globalSchema = JSON.stringify({
     "postalCode": "22339",
     "addressCountry": "DE"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "53.6471",
+    "longitude": "10.0573"
+  },
   "url": "https://gaertenvonhoerschelmann.de",
+  "telephone": "+49 40 123456789",
   "founder": {
     "@type": "Person",
     "name": "Sören von Hoerschelmann"
   },
   "image": "https://gaertenvonhoerschelmann.de/img/Wohnen-Garten-Blick-aus-der-Terrassentuer-Rahmen-Parrotie-Eisenholz-Gaerten-des-Jahres-scaled.jpg",
-  "priceRange": "$$$"
+  "priceRange": "$$$",
+  "areaServed": ["Hamburg", "Lauenburg", "Sylt", "Kitzbühel"],
+  "openingHours": "Mo-Fr 08:00-18:00"
 });
 ---
 
@@ -40,6 +49,12 @@ const globalSchema = JSON.stringify({
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+
+        <!-- Security Headers (Simulation for meta) -->
+        <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta name="referrer" content="strict-origin-when-cross-origin">
+
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=playfair-display:400,400i,700|inter:200,300,400,600,700" rel="stylesheet" />
 
@@ -47,6 +62,7 @@ const globalSchema = JSON.stringify({
         <meta property="og:title" content={title}>
         <meta property="og:description" content={description}>
         <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Gaerten von Hoerschelmann">
         <meta name="twitter:card" content="summary_large_image">
 
         <!-- Structured Data -->
@@ -71,7 +87,7 @@ const globalSchema = JSON.stringify({
 
             requestAnimationFrame(raf)
 
-            // Custom Cursor
+            // Custom Cursor with advanced mode
             if (window.matchMedia("(min-width: 1024px)").matches) {
                 const cursorDot = document.createElement('div');
                 cursorDot.classList.add('custom-cursor');
@@ -97,10 +113,10 @@ const globalSchema = JSON.stringify({
                 });
 
                 const animateCursor = () => {
-                    dotX += (mouseX - dotX) * 0.15;
-                    dotY += (mouseY - dotY) * 0.15;
-                    outX += (mouseX - outX) * 0.08;
-                    outY += (mouseY - outY) * 0.08;
+                    dotX += (mouseX - dotX) * 0.2;
+                    dotY += (mouseY - dotY) * 0.2;
+                    outX += (mouseX - outX) * 0.1;
+                    outY += (mouseY - outY) * 0.1;
 
                     cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
                     cursorOutline.style.transform = `translate3d(${outX}px, ${outY}px, 0) translate(-50%, -50%)`;
@@ -117,28 +133,47 @@ const globalSchema = JSON.stringify({
                 const txt = document.getElementById('cursor-text');
                 if(out && txt) {
                     if(active) {
-                        out.style.width = '70px';
-                        out.style.height = '70px';
-                        out.style.background = 'rgba(210, 180, 140, 0.08)';
-                        txt.style.opacity = '1';
+                        out.classList.add('hover-active');
                         if(text) txt.innerText = text;
                     } else {
-                        out.style.width = '40px';
-                        out.style.height = '40px';
-                        out.style.background = 'transparent';
-                        txt.style.opacity = '0';
+                        out.classList.remove('hover-active');
                     }
                 }
             };
+
+            // Season Switch Logic
+            const month = new Date().getMonth(); // 0-11
+            const body = document.body;
+            // Simple class application for potential CSS hooks
+            if (month >= 2 && month <= 4) body.classList.add('season-spring');
+            else if (month >= 5 && month <= 7) body.classList.add('season-summer');
+            else if (month >= 8 && month <= 10) body.classList.add('season-autumn');
+            else body.classList.add('season-winter');
+
+            // Scroll Progress
+            const progressBar = document.createElement('div');
+            progressBar.classList.add('scroll-progress');
+            document.body.appendChild(progressBar);
+
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + "%";
+            });
+
         </script>
 	</head>
-	<body>
+	<body class="season-default">
+        <!-- Loader: Dirigentenstock -->
         <div id="preloader" class="preloader">
-            <div class="loader-logo">Gaerten von Hoerschelmann</div>
-            <div class="loader-bar-container">
-                <div class="loader-bar-fill"></div>
+            <div class="baton-container">
+                <div class="baton-fill"></div>
             </div>
+            <div class="loader-logo">Gaerten von Hoerschelmann</div>
         </div>
+
+        <Soundscape client:idle />
 
 		<slot />
 
@@ -146,9 +181,10 @@ const globalSchema = JSON.stringify({
             // Preloader logic
             window.addEventListener('load', () => {
                 const loader = document.getElementById('preloader');
+                // Ensure animation has time to be seen
                 setTimeout(() => {
                     if(loader) loader.classList.add('fade-out');
-                }, 1200);
+                }, 1500);
             });
 
             // Intersection Observer for reveals

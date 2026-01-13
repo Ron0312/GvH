@@ -1,0 +1,43 @@
+---
+import LazyImage from './LazyImage.astro';
+
+const pressItems = [
+    { outlet: 'Schöner Wohnen', title: 'Gärten des Jahres 2024', desc: 'Cover-Story: Über die Ästhetik des Verfalls.', year: '2024' },
+    { outlet: 'H.O.M.E.', title: 'Top 100 Landscape Architects', desc: 'Die Elite der grünen Branche.', year: '2023' },
+    { outlet: 'Frankfurter Allgemeine', title: 'Der neue Luxus ist Stille', desc: 'Sören von Hoerschelmann im Interview.', year: '2023' }
+];
+---
+
+<section class="section-padding px-6 bg-white border-t border-gray-50">
+    <div class="max-content">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 reveal-obs">
+            <div>
+                <span class="text-brand-moss text-[10px] uppercase tracking-[0.4em] font-bold block mb-6">Resonanz</span>
+                <h2 class="clamp-h2 font-serif italic text-brand-dark">In der Presse</h2>
+            </div>
+            <a href="/journal" class="hidden md:block text-[9px] uppercase tracking-widest font-bold text-brand-earth border-b border-brand-earth pb-1 hover:text-brand-dark hover:border-brand-dark transition-colors">Zum Journal</a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12 border-t border-gray-100 pt-12">
+            {pressItems.map((item, i) => (
+                <article class="group cursor-none reveal-obs" style={`transition-delay: ${i * 100}ms`} onmouseenter="window.setCursorMode(true, 'Lesen')" onmouseleave="window.setCursorMode(false)">
+                    <div class="flex justify-between items-start mb-6 opacity-40 group-hover:opacity-100 transition-opacity">
+                        <span class="text-[9px] uppercase tracking-widest font-black">{item.outlet}</span>
+                        <span class="text-[9px] uppercase tracking-widest">{item.year}</span>
+                    </div>
+                    <h3 class="text-2xl font-serif italic mb-4 text-brand-slate group-hover:text-brand-earth transition-colors">{item.title}</h3>
+                    <p class="text-sm font-light text-gray-400 leading-relaxed">{item.desc}</p>
+                </article>
+            ))}
+        </div>
+
+        <!-- Trust Indicators / Awards Logos (Placeholder) -->
+        <div class="mt-24 flex flex-wrap justify-center md:justify-start gap-12 opacity-30 grayscale hover:grayscale-0 transition-all duration-700 reveal-obs">
+            <!-- Simple text placeholders for logos as I don't have SVGs -->
+            <span class="font-serif italic text-xl">Callwey</span>
+            <span class="font-serif italic text-xl">BDLA</span>
+            <span class="font-serif italic text-xl">Garten+Landschaft</span>
+            <span class="font-serif italic text-xl">AD Magazine</span>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,20 @@
+// Add scroll progress logic to Layout.astro script block
+// I'll update Layout.astro to include the scroll progress bar logic
+
+const script = `
+    const progressBar = document.createElement('div');
+    progressBar.classList.add('scroll-progress');
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+    });
+`;
+
+// However, I already have Layout.astro. I should verify if I added it there.
+// I see I missed adding the JS for scroll-progress in Layout.astro in Step 2.
+// I defined the CSS class .scroll-progress in Step 1.
+// I will append this logic to Layout.astro using replace_with_git_merge_diff or just overwrite it if safer.

@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Partner Login | Gaerten von Hoerschelmann" description="Exklusiver Zugang für Architekten und Bauherren.">
+    <Navigation currentPath="/architects-login" />
+
+    <main class="h-screen w-full flex items-center justify-center bg-brand-slate relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+
+        <div class="bg-white p-12 md:p-16 max-w-md w-full shadow-2xl relative z-10 animate-in fade-in zoom-in duration-700">
+            <span class="text-brand-earth text-[9px] uppercase tracking-widest font-bold block mb-8 text-center">Architects Access</span>
+            <h1 class="text-3xl font-serif italic text-center mb-10 text-brand-dark">Willkommen im Atelier.</h1>
+
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-[8px] uppercase tracking-widest text-gray-400 mb-2">Access ID</label>
+                    <input type="text" class="w-full border-b border-gray-200 py-3 text-brand-dark outline-none focus:border-brand-moss transition-colors" />
+                </div>
+                <div>
+                    <label class="block text-[8px] uppercase tracking-widest text-gray-400 mb-2">Passphrase</label>
+                    <input type="password" class="w-full border-b border-gray-200 py-3 text-brand-dark outline-none focus:border-brand-moss transition-colors" />
+                </div>
+
+                <button type="button" class="w-full bg-brand-dark text-white py-4 uppercase text-[9px] font-black tracking-widest hover:bg-brand-earth transition-colors mt-8">
+                    Eintreten
+                </button>
+            </form>
+
+            <p class="text-center mt-8 text-[8px] text-gray-400 leading-relaxed">
+                Dieser Bereich ist Hochbau-Partnern und Bestandskunden vorbehalten. <br/>
+                <a href="/kontakt" class="underline hover:text-brand-earth">Zugang anfragen.</a>
+            </p>
+        </div>
+    </main>
+    <Footer />
+</Layout>

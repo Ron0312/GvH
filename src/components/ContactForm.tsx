@@ -90,9 +90,10 @@ export default function ContactForm() {
                             <div className="space-y-16 animate-in fade-in slide-in-from-bottom-5 duration-700 text-center">
                                 <h3 className="text-3xl md:text-4xl font-serif italic">Welchen Raum geben wir der Vision?</h3>
                                 <div className="grid sm:grid-cols-3 gap-6">
-                                    {[{ l: 'Private Refuge', r: '150k — 350k' }, { l: 'Estate Design', r: '350k — 750k' }, { l: 'Masterpiece', r: 'Exzellenz (1M+)' }].map(o => (
+                                    {[{ l: 'Private Refuge', r: '150k — 350k', p: false }, { l: 'Estate Design', r: '350k — 750k', p: false }, { l: 'Masterpiece', r: 'Exzellenz (1M+)', p: true }].map(o => (
                                         <button key={o.l} type="button" onClick={() => setFormStep(3)} onMouseEnter={() => setCursorMode(true)} onMouseLeave={() => setCursorMode(false)}
-                                            className="p-10 border border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white transition-all duration-500 group">
+                                            className={`p-10 border border-[#1A1A1A] transition-all duration-500 group relative overflow-hidden ${o.p ? 'bg-brand-slate text-white hover:bg-brand-earth' : 'hover:bg-[#1A1A1A] hover:text-white'}`}>
+                                            {o.p && <span className="absolute top-2 right-2 text-[7px] uppercase tracking-widest border border-white/20 px-2 py-1">Priority</span>}
                                             <span className="block text-[8px] font-black uppercase tracking-widest mb-6 opacity-40 group-hover:opacity-100">Dimension</span>
                                             <span className="block text-lg font-serif italic mb-2">{o.l}</span>
                                             <span className="block text-[9px] font-black tracking-widest">{o.r}</span>
@@ -112,15 +113,21 @@ export default function ContactForm() {
                                 <div className="grid sm:grid-cols-2 gap-12">
                                     <input type="text" placeholder="IHR NAME" required className="w-full bg-transparent border-b border-gray-200 py-5 text-[10px] tracking-widest outline-none focus:border-[#A0522D] transition-colors" />
                                     <input type="email" placeholder="E-MAIL ADRESSE" required className="w-full bg-transparent border-b border-gray-200 py-5 text-[10px] tracking-widest outline-none focus:border-[#A0522D] transition-colors" />
-                                    <textarea placeholder="PROJEKTSTANDORT ODER BESONDERE WÜNSCHE" rows={1} className="sm:col-span-2 w-full bg-transparent border-b border-gray-200 py-5 text-[10px] tracking-widest outline-none focus:border-[#A0522D] transition-colors resize-none"></textarea>
+                                    <div className="sm:col-span-2 relative">
+                                        <textarea placeholder="PROJEKTSTANDORT ODER BESONDERE WÜNSCHE" rows={1} className="w-full bg-transparent border-b border-gray-200 py-5 text-[10px] tracking-widest outline-none focus:border-[#A0522D] transition-colors resize-none"></textarea>
+                                        <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden md:block">
+                                            <a href="#" className="text-[8px] uppercase tracking-widest text-[#A0522D] hover:underline">Rückruf vereinbaren?</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="text-center pt-10">
                                     <MagneticElement strength={0.15}>
                                         <button type="submit" disabled={isSubmitting} onMouseEnter={() => setCursorMode(true)} onMouseLeave={() => setCursorMode(false)} className="group relative inline-flex items-center justify-center px-16 py-7 bg-[#A0522D] text-white overflow-hidden tracking-widest uppercase text-[10px] font-black disabled:opacity-50">
-                                            <span className="relative z-10">{isSubmitting ? 'Verbinde...' : 'Das Gespräch eröffnen'}</span>
+                                            <span className="relative z-10">{isSubmitting ? 'Verbinde...' : 'Dialog eröffnen'}</span>
                                             <div className="absolute inset-0 bg-[#8B4513] translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                                         </button>
                                     </MagneticElement>
+                                    <p className="mt-4 text-[8px] text-gray-400 uppercase tracking-widest">White-Glove Service: Wir antworten binnen 24h.</p>
                                     <button type="button" onClick={() => setFormStep(2)} onMouseEnter={() => setCursorMode(true)} onMouseLeave={() => setCursorMode(false)} className="block mx-auto text-[9px] uppercase tracking-widest font-black opacity-30 hover:opacity-100 mt-12 transition-opacity">← Dimension anpassen</button>
                                 </div>
                             </div>
