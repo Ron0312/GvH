@@ -8,6 +8,7 @@ import TextReveal from '../components/TextReveal.astro';
 import LazyImage from '../components/LazyImage.astro';
 import ResonanceCTA from '../components/ResonanceCTA.astro';
 import PressSection from '../components/PressSection.astro';
+import ProcessGallery from '../components/ProcessGallery.astro';
 import ExitIntent from '../components/ExitIntent.astro';
 import { CONTENT } from '../data/content';
 ---
@@ -67,6 +68,14 @@ import { CONTENT } from '../data/content';
                     />
                 </div>
             </div>
+        </section>
+
+        <section class="bg-white border-t border-gray-50 pt-24 pb-12">
+            <div class="max-content px-6 mb-12">
+                <span class="text-[#A0522D] text-[10px] uppercase tracking-[0.8em] block mb-8 font-bold italic">Atelier & Handwerk</span>
+                <h2 class="clamp-h2 font-serif italic max-w-2xl">Von der Skizze zur Realität</h2>
+            </div>
+            <ProcessGallery />
         </section>
 
         <ResonanceCTA

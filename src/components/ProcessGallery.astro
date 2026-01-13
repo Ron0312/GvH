@@ -1,0 +1,23 @@
+---
+import { CONTENT } from '../data/content';
+import LazyImage from './LazyImage.astro';
+---
+
+<div class="w-full relative py-12">
+    <div class="flex gap-8 overflow-x-auto no-scrollbar pb-10 px-6 snap-x snap-mandatory">
+        {CONTENT.processImages.map((img, i) => (
+            <div class="snap-center shrink-0 w-[80vw] md:w-[400px] relative group reveal-obs" style={`transition-delay: ${i * 100}ms`}>
+                <LazyImage
+                    src={img.src}
+                    aspect="aspect-[4/3]"
+                    autoColor={true}
+                    className="rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                    alt={img.desc}
+                />
+                <div class="absolute bottom-4 left-4 bg-white/90 px-4 py-2 text-[10px] uppercase tracking-widest font-black backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
+                    {img.desc}
+                </div>
+            </div>
+        ))}
+    </div>
+</div>

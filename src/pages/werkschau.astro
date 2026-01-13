@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import LazyImage from '../components/LazyImage.astro';
 import ResonanceCTA from '../components/ResonanceCTA.astro';
+import DetailGallery from '../components/DetailGallery.astro';
 import { CONTENT } from '../data/content';
 import { Icon } from 'lucide-react';
 
@@ -30,7 +31,7 @@ const projectsSchema = JSON.stringify({
         <section class="section-padding px-6 animate-in fade-in">
             <div class="max-content">
                 <h2 class="clamp-h1 font-serif italic mb-16 md:mb-24 reveal-obs text-center lg:text-left">Werkschau</h2>
-                <div class="grid gap-24 md:gap-40">
+                <div class="grid gap-24 md:gap-40 mb-32">
                     {CONTENT.projects.map((proj, idx) => (
                         <div class="bg-[#1A1A1A] text-white shadow-premium grid lg:grid-cols-12 reveal-obs overflow-hidden rounded-sm project-card" data-index={idx}>
                             <article class="lg:col-span-5 p-5 md:p-12 lg:p-16 flex flex-col justify-between order-2 lg:order-1 text-left">
@@ -112,6 +113,9 @@ const projectsSchema = JSON.stringify({
                 </div>
             </div>
         </section>
+
+        <DetailGallery />
+
         <ResonanceCTA
             title="Ihr Projekt als nächste Partitur"
             subtitle="Jeder Garten in unserer Werkschau begann mit einem leeren Blatt Papier. Lassen Sie uns Ihre Geschichte gemeinsam schreiben."
