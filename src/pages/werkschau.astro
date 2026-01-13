@@ -12,7 +12,7 @@ const projectsSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": CONTENT.projects.map((proj, idx) => ({
       "@type": "ImageObject",
-      "contentUrl": `https://gaertenvonhoerschelmann.de${idx === 0 ? "/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg" : "/img/Schrittplatten-Wasservorhang-rote-Waende-Holzdeck-Pergola-Aussenkueche-Wasserbecken-Liegen-Rasen-Schaugarten-scaled.jpg"}`,
+      "contentUrl": `https://gaertenvonhoerschelmann.de${proj.img}`,
       "name": proj.title,
       "description": proj.phases.challenge,
       "locationCreated": {
@@ -99,7 +99,7 @@ const projectsSchema = JSON.stringify({
                             </article>
                             <div class="lg:col-span-7 relative bg-black overflow-hidden order-1 lg:order-2 aspect-[16/10] lg:aspect-auto project-image-container" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)">
                                 <LazyImage
-                                    src={idx === 0 ? "/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg" : "/img/Schrittplatten-Wasservorhang-rote-Waende-Holzdeck-Pergola-Aussenkueche-Wasserbecken-Liegen-Rasen-Schaugarten-scaled.jpg"}
+                                    src={proj.img}
                                     aspect="aspect-square lg:h-full"
                                     autoColor={true}
                                     className="transition-all duration-[2.5s] opacity-100 hover:scale-[1.01]"

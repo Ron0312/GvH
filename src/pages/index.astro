@@ -19,10 +19,16 @@ import { CONTENT } from '../data/content';
         <Hero />
 
         <section class="py-8 md:py-16 bg-white border-b border-gray-100 overflow-hidden px-6">
-            <div class="max-content flex flex-wrap justify-center md:justify-around items-center gap-8 md:gap-12 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-1000 reveal-obs">
-                <div class="flex flex-col gap-1 text-center"><span class="text-[7px] font-black uppercase tracking-widest">Auszeichnung</span><span class="font-serif italic text-xl md:text-2xl">Gärten des Jahres</span></div>
-                <div class="flex flex-col gap-1 text-center"><span class="text-[7px] font-black uppercase tracking-widest">Ranking</span><span class="font-serif italic text-xl md:text-2xl">Top 100 Planer</span></div>
-                <div class="flex flex-col gap-1 text-center"><span class="text-[7px] font-black uppercase tracking-widest">Region</span><span class="font-serif italic text-xl md:text-2xl">HH | Sylt | Kitzbühel</span></div>
+            <div class="max-content flex flex-col md:flex-row justify-center md:justify-between items-center gap-12 reveal-obs">
+                 <div class="flex flex-wrap justify-center gap-6 md:gap-10 opacity-80 grayscale hover:grayscale-0 transition-all duration-700">
+                     {CONTENT.awards.map(award => (
+                         <img src={award.img} alt={award.alt} class="h-12 md:h-16 w-auto object-contain mix-blend-multiply" />
+                     ))}
+                 </div>
+                 <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-40">
+                    <div class="flex flex-col gap-1 text-center"><span class="text-[7px] font-black uppercase tracking-widest">Ranking</span><span class="font-serif italic text-xl md:text-2xl">Top 100 Planer</span></div>
+                    <div class="flex flex-col gap-1 text-center"><span class="text-[7px] font-black uppercase tracking-widest">Region</span><span class="font-serif italic text-xl md:text-2xl">HH | Sylt | Kitzbühel</span></div>
+                 </div>
             </div>
         </section>
 
