@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
-import LazyImage from '../components/LazyImage.astro';
 import ResonanceCTA from '../components/ResonanceCTA.astro';
 import { CONTENT } from '../data/content';
 ---
@@ -20,12 +19,11 @@ import { CONTENT } from '../data/content';
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-16 md:gap-24 items-center mb-32 md:mb-48">
-                    <div onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)">
-                        <LazyImage
+                    <div class="relative overflow-hidden aspect-[3/4] shadow-premium rounded-sm group" onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)">
+                        <img
                             src="/img/Soeren-von-Hoerschelmann-Landschaftsarchitekt-Landschaftskomponist-Geschaeftsfuehrer-Gaerten-von-Hoerschelmann-Experte-Planer-Beratung-Planung-Geschaeftsfuehrung-scaled.jpg"
-                            aspect="aspect-[3/4]"
-                            autoColor={true}
-                            className="shadow-premium rounded-sm group hover:scale-[1.01] transition-transform duration-1000"
+                            alt="Sören von Hoerschelmann"
+                            class="w-full h-full object-cover hover:scale-[1.01] transition-transform duration-1000"
                         />
                     </div>
                     <div class="space-y-16 reveal-obs">
@@ -62,7 +60,7 @@ import { CONTENT } from '../data/content';
                         {CONTENT.team.map((member, i) => (
                             <div class="grid md:grid-cols-12 gap-16 items-center reveal-obs">
                                 <div class={`md:col-span-5 aspect-[4/5] overflow-hidden rounded-sm shadow-xl ${i % 2 !== 0 ? 'md:order-2' : ''}`} onmouseenter="window.setCursorMode(true)" onmouseleave="window.setCursorMode(false)">
-                                    <LazyImage src={member.img} alt={`Porträt von ${member.name}, ${member.role}`} autoColor={true} aspect="aspect-[4/5]" />
+                                    <img src={member.img} alt={`Porträt von ${member.name}, ${member.role}`} class="w-full h-full object-cover" />
                                 </div>
                                 <div class={`md:col-span-7 space-y-10 text-left ${i % 2 !== 0 ? 'md:order-1' : ''}`}>
                                     <div class="space-y-4">
