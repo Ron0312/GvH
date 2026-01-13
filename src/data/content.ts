@@ -159,6 +159,42 @@ export const CONTENT = {
                 result: 'Ein Garten der Entdeckungen mit fließenden Übergängen und spannenden Blickachsen.'
             },
             img: '/img/Stahlhalme-Gartenraum-Pflanzenzimmer-Gaerten-des-Jahres-Brunnen-Sandstein-1024x683.jpg'
+        },
+        {
+            id: 'kleiner-garten',
+            title: 'Das Grüne Handtuch',
+            location: 'Urban / Reihenhaus',
+            tags: ['Kleingarten', 'Raumwunder', 'Wasserstein'],
+            phases: {
+                challenge: 'Kleines Grundstück, maximale Ansprüche an Raumgefühl und Funktion.',
+                vision: 'Ein "Grünes Handtuch", das durch geschickte Raumaufteilung Weite suggeriert.',
+                result: 'Ein intimer Rückzugsort mit Sauna und Wasser, der größer wirkt als er ist.'
+            },
+            img: '/img/Kleiner-Garten-Wasserstein-Kies-Beet-Gruenes-Handtuch-Gaerten-des-Jahres-1024x683.jpg'
+        },
+        {
+            id: 'robinie-teich',
+            title: 'Robinienterrasse am Teich',
+            location: 'Privatgarten',
+            tags: ['Robinie', 'Teich', 'Pergola'],
+            phases: {
+                challenge: 'Verbindung von Wohnraum und Wasserlandschaft mit natürlichen Materialien.',
+                vision: 'Eine Robinien-Pergola als Rahmen für den Blick auf den Teich und die Weite.',
+                result: 'Harmonie aus Holz, Wasser und Weite mit geliehener Landschaft.'
+            },
+            img: '/img/Robinie-Rasen-Beete-Granitborde-Pergola-Teich-Aussicht-geliehene-Landschaft-Gaerten-des-Jahres-1024x683.jpg'
+        },
+        {
+            id: 'gartenhof',
+            title: 'Gartenhof Muschelkalk',
+            location: 'Hofgarten',
+            tags: ['Muschelkalk', 'Hof', 'Mauer'],
+            phases: {
+                challenge: 'Strukturierung eines geschlossenen Hofes mit Höhenunterschieden.',
+                vision: 'Muschelkalk-Mauern als warme, strukturgebende Elemente für Ebenen.',
+                result: 'Ein mediterran anmutender Hof mit hoher Aufenthaltsqualität und Geborgenheit.'
+            },
+            img: '/img/Gartenhof-Muschelkalk-Mauer-Treppe-Gartenraum-Kieshof-1024x683.jpg'
         }
     ],
     testimonials: [
