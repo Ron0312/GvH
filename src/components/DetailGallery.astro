@@ -1,0 +1,25 @@
+---
+import { CONTENT } from '../data/content';
+import LazyImage from './LazyImage.astro';
+
+const allDetails = [...CONTENT.details.map(d => d.src), ...CONTENT.impressions];
+---
+
+<section class="section-padding px-6 bg-[#FDFCFB] border-t border-gray-50">
+    <div class="max-content">
+        <h2 class="clamp-h2 font-serif italic mb-16 text-center reveal-obs">Impressionen & Details</h2>
+        <div class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+            {allDetails.map((src, i) => (
+                <div class="break-inside-avoid reveal-obs" style={`transition-delay: ${(i % 3) * 100}ms`}>
+                    <LazyImage
+                        src={src}
+                        aspect="aspect-auto"
+                        autoColor={true}
+                        className="rounded-sm hover:scale-[1.02] transition-transform duration-700 shadow-sm"
+                        alt="Garten Detail"
+                    />
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
