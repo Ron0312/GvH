@@ -1,0 +1,18 @@
+---
+const quotes = [
+    { text: "Der Garten ist der letzte Luxus unserer Tage, denn er fordert das, was uns am kostbarsten geworden ist: Zeit, Zuwendung und Raum.", author: "Dieter Kienast" },
+    { text: "Architektur beginnt, wo Ingenieurskunst endet.", author: "Walter Gropius" },
+    { text: "Die Natur ist die beste Baumeisterin.", author: "Sören von Hoerschelmann" }
+];
+
+// Pick one based on month/day to simulate rotation
+const dayOfYear = Math.floor((new Date().getTime() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 1000 / 60 / 60 / 24);
+const quoteIndex = dayOfYear % quotes.length;
+const currentQuote = quotes[quoteIndex];
+---
+
+<div class="reveal-obs mt-12 text-center max-w-2xl mx-auto opacity-80 mix-blend-difference text-white/90">
+    <p class="font-serif italic text-lg md:text-xl leading-relaxed">„{currentQuote.text}“</p>
+    <div class="w-8 h-[1px] bg-brand-sand mx-auto my-4"></div>
+    <span class="text-[9px] uppercase tracking-widest font-bold text-brand-sand">{currentQuote.author}</span>
+</div>

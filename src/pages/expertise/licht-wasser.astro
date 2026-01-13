@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import ResonanceCTA from '../../components/ResonanceCTA.astro';
+import TextReveal from '../../components/TextReveal.astro';
+import LazyImage from '../../components/LazyImage.astro';
+
+const seoTitle = "Licht & Wasser im Garten | Pool & Beleuchtung Hamburg | Gaerten von Hoerschelmann";
+const seoDesc = "Inszenierung von Wasser und Licht. Wir planen Naturpools, Schwimmteiche und High-End Beleuchtungskonzepte für Gärten in Hamburg und Sylt.";
+---
+
+<Layout title={seoTitle} description={seoDesc}>
+    <Navigation currentPath="/expertise/licht-wasser" />
+
+    <main class="pt-32">
+        <section class="max-content px-6 mb-20">
+            <div class="text-[9px] uppercase tracking-widest text-brand-moss mb-8 opacity-60">
+                <a href="/" class="hover:text-brand-dark">Home</a> / <a href="/expertise" class="hover:text-brand-dark">Expertise</a> / Licht & Wasser
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-obs order-2 lg:order-1">
+                    <LazyImage
+                        src="/img/Wohnen-Garten-Schwimmteich-Daemmerung-Lounge-Licht-Gaerten-des-Jahres-scaled.jpg"
+                        className="shadow-premium"
+                        aspect="aspect-[4/5]"
+                        alt="Gartenbeleuchtung und Schwimmteich bei Nacht"
+                    />
+                </div>
+                <div class="reveal-obs order-1 lg:order-2">
+                    <h1 class="clamp-h2 font-serif italic mb-8"><TextReveal>Die zweite</TextReveal> <br /> <TextReveal className="text-brand-moss">Inszenierung.</TextReveal></h1>
+                    <p class="text-xl md:text-2xl text-gray-500 font-light leading-relaxed mb-10">
+                        Wenn die Sonne untergeht, erwacht der Garten zu neuem Leben. Licht ist unser subtilstes Werkzeug, Wasser unser lebendigstes Material.
+                    </p>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="font-serif text-xl italic mb-3">Der Spiegel des Himmels</h3>
+                            <p class="text-gray-500 font-light leading-relaxed">
+                                Ob architektonisches Wasserbecken, Naturpool oder Schwimmteich – Wasser bringt Ruhe und Weite in den Garten. Wir integrieren Wasserflächen so, dass sie Architektur spiegeln und akustisch beruhigen.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-xl italic mb-3">Licht-Choreografie</h3>
+                            <p class="text-gray-500 font-light leading-relaxed">
+                                Wir vermeiden „Flutlicht“. Stattdessen setzen wir Akzente: Ein angestrahlter Solitärbaum, eine unterleuchtete Sitzbank, ein sanft glimmender Pfad. Smart-Home gesteuert und insektenfreundlich gedimmt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <ResonanceCTA
+            title="Atmosphäre schaffen"
+            subtitle="Licht und Wasser sind die Seele des Gartens. Planen wir Ihre Oase."
+            ctaLink="/kontakt"
+        />
+    </main>
+    <Footer />
+</Layout>

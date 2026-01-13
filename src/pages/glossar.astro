@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { CONTENT } from '../data/content';
+
+const seoTitle = "Glossar der Landschaftsarchitektur | Gaerten von Hoerschelmann";
+const seoDesc = "Verstehen Sie die Sprache Ihres Gartens. Definitionen zu Genius Loci, Solitär, Partitur und mehr.";
+---
+
+<Layout title={seoTitle} description={seoDesc}>
+    <Navigation currentPath="/glossar" />
+
+    <main class="pt-32 pb-20 bg-brand-light">
+        <section class="max-content px-6">
+            <h1 class="clamp-h2 font-serif italic mb-16 text-center reveal-obs">Lexikon der <br/><span class="text-brand-moss">Landschaftskomposition</span></h1>
+
+            <div class="grid gap-12 max-w-4xl mx-auto">
+                {CONTENT.glossary.map((item, i) => (
+                    <div class="bg-white p-10 md:p-14 shadow-sm border border-gray-50 reveal-obs group hover:border-brand-moss/30 transition-colors" style={`transition-delay: ${i * 50}ms`}>
+                        <span class="text-[9px] uppercase tracking-widest text-brand-earth mb-4 block font-bold">Begriff {i+1}</span>
+                        <h2 class="text-3xl font-serif italic mb-6 text-brand-dark group-hover:text-brand-moss transition-colors">{item.term}</h2>
+                        <p class="text-lg font-light text-gray-500 leading-relaxed">{item.definition}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>

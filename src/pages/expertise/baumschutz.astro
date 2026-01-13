@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import ResonanceCTA from '../../components/ResonanceCTA.astro';
+import TextReveal from '../../components/TextReveal.astro';
+import LazyImage from '../../components/LazyImage.astro';
+
+const seoTitle = "Baumschutz & Botanik | Solitärgehölze Hamburg | Gaerten von Hoerschelmann";
+const seoDesc = "Botanische Kuratierung und professioneller Baumschutz. Wir erhalten historische Bestände und pflanzen Charakter-Bäume für die Ewigkeit.";
+---
+
+<Layout title={seoTitle} description={seoDesc}>
+    <Navigation currentPath="/expertise/baumschutz" />
+
+    <main class="pt-32">
+        <section class="max-content px-6 mb-20">
+            <div class="text-[9px] uppercase tracking-widest text-brand-moss mb-8 opacity-60">
+                <a href="/" class="hover:text-brand-dark">Home</a> / <a href="/expertise" class="hover:text-brand-dark">Expertise</a> / Botanik & Baumschutz
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-8 reveal-obs">
+                    <h1 class="clamp-h2 font-serif italic mb-10"><TextReveal>Die Solisten</TextReveal> <br /> <TextReveal className="text-brand-moss">des Gartens.</TextReveal></h1>
+                    <p class="text-xl md:text-2xl text-gray-500 font-light leading-relaxed mb-12">
+                        Pflanzen sind keine Dekoration. Sie sind lebende Architekturelemente, die Räume definieren, Schatten spenden und Jahreszeiten erlebbar machen.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <div class="bg-white p-8 border border-gray-100 hover:shadow-premium transition-shadow reveal-obs">
+                    <h3 class="font-serif text-xl italic mb-4 text-brand-dark">Großbaum-Verpflanzung</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Wir pflanzen Zeit. Durch die Verwendung von 30-40 Jahre alten Solitärgehölzen schaffen wir Gärten, die vom ersten Tag an erwachsen wirken.</p>
+                </div>
+                <div class="bg-white p-8 border border-gray-100 hover:shadow-premium transition-shadow reveal-obs" style="transition-delay: 100ms">
+                    <h3 class="font-serif text-xl italic mb-4 text-brand-dark">Baumschutz & Gutachten</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Bei Bauvorhaben in Hamburg ist der Schutz des Bestandes essenziell. Wir erstellen Baumschutzgutachten und verhandeln diskret mit Behörden für optimale Lösungen.</p>
+                </div>
+                <div class="bg-white p-8 border border-gray-100 hover:shadow-premium transition-shadow reveal-obs" style="transition-delay: 200ms">
+                    <h3 class="font-serif text-xl italic mb-4 text-brand-dark">Klimaresilienz</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Unsere Pflanzpläne („Partituren“) berücksichtigen den Klimawandel. Wir setzen auf tiefwurzelnde, trockenheitsresistente Arten, die auch in heißen Sommern vital bleiben.</p>
+                </div>
+            </div>
+
+            <div class="w-full h-[60vh] reveal-obs">
+                <LazyImage
+                    src="/img/Wohnen-Garten-Blick-aus-der-Terrassentuer-Rahmen-Parrotie-Eisenholz-Gaerten-des-Jahres-scaled.jpg"
+                    className="w-full h-full object-cover"
+                    aspect="h-full"
+                    alt="Solitärbaum im Garten"
+                />
+            </div>
+        </section>
+
+        <ResonanceCTA
+            title="Wachstum sichern"
+            subtitle="Investieren Sie in lebende Werte. Wir beraten Sie zur botanischen Kuratierung."
+            ctaLink="/kontakt"
+        />
+    </main>
+    <Footer />
+</Layout>

@@ -1,22 +1,38 @@
 ---
-const { src, alt, className = "", aspect = "aspect-square", autoColor = false } = Astro.props;
+interface Props {
+    src: string;
+    alt: string;
+    className?: string;
+    aspect?: string;
+    autoColor?: boolean;
+    sketch?: string; // Optional: path to sketch image for hover
+}
+
+const { src, alt, className = "", aspect = "aspect-square", autoColor = false, sketch } = Astro.props;
 ---
 
-<div class={`lazy-image-container relative overflow-hidden ${aspect} ${className} img-placeholder`} data-src={src} data-autocolor={autoColor}>
+<div class={`lazy-image-container gallery-border relative overflow-hidden ${aspect} ${className} img-placeholder group`} data-src={src} data-autocolor={autoColor}>
     <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         alt={alt}
-        class={`w-full h-full object-cover transition-all duration-1000 opacity-0 scale-110 lazy-image`}
+        class={`w-full h-full object-cover transition-all duration-1000 opacity-0 scale-110 lazy-image will-change-transform group-hover:scale-105`}
         loading="lazy"
     />
+
+    {sketch && (
+        <div class="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-white/90 flex items-center justify-center pointer-events-none mix-blend-multiply">
+            <img src={sketch} alt="Skizze" class="w-full h-full object-contain p-8 scale-105 group-hover:scale-100 transition-transform duration-700" />
+            <div class="absolute bottom-4 left-4 text-brand-dark text-[9px] uppercase tracking-widest font-bold">Die Partitur</div>
+        </div>
+    )}
 </div>
 
 <script>
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const container = entry.target;
-                const img = container.querySelector('img');
+                const container = entry.target as HTMLElement;
+                const img = container.querySelector('img.lazy-image') as HTMLImageElement;
                 const src = container.getAttribute('data-src');
                 const autoColor = container.getAttribute('data-autocolor') === 'true';
 

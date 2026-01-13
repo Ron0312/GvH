@@ -7,6 +7,8 @@ import Expertise from '../components/Expertise.astro';
 import TextReveal from '../components/TextReveal.astro';
 import LazyImage from '../components/LazyImage.astro';
 import ResonanceCTA from '../components/ResonanceCTA.astro';
+import PressSection from '../components/PressSection.astro';
+import ExitIntent from '../components/ExitIntent.astro';
 import { CONTENT } from '../data/content';
 ---
 
@@ -98,7 +100,11 @@ import { CONTENT } from '../data/content';
                 ))}
             </div>
         </section>
+
+        <!-- Press Section -->
+        <PressSection />
     </main>
 
     <Footer />
+    <ExitIntent />
 </Layout>
