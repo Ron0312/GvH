@@ -29,3 +29,7 @@
 16:46:27 [watch] src/pages/index.astro
 16:47:30 [200] / 590ms
 16:47:37 [200] /philosophie 9ms
+17:09:10 [watch] src/components/Hero.astro
+17:09:10 [watch] src/components/Hero.astro
+17:10:07 [watch] src/data/content.ts
+17:10:07 [watch] src/data/content.ts

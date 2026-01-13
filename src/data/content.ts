@@ -53,7 +53,7 @@ export const CONTENT = {
             tag: 'Atmosphäre & Technik',
             desc: 'Wenn die Dämmerung einsetzt, beginnt der zweite Akt Ihres Gartens. Wir inszenieren Wasserflächen als Spiegel des Himmels und nutzen Licht als subtilen Pinsel, um Tiefenwirkung zu erzeugen.',
             details: ['Smart-Garden-Lighting', 'Wasserspiele & Spiegelteiche', 'Naturpools', 'Szenische Steuerung'],
-            img: '/img/Wohnen-Garten-Schwimmteich-Daemmerung-Lounge-Licht-Gaerten-des-Jahres-scaled.jpg',
+            img: '/img/Schwimmteich-Steg-Baden-Wellness-Skandinavien-Oase-1024x683.jpg',
             alt: 'Lichtkonzept und Wasserspiel im Luxusgarten'
         }
     ],
@@ -66,8 +66,8 @@ export const CONTENT = {
     ],
     journal: [
         { title: 'Die Ästhetik des Verfalls', cat: 'Philosophie', excerpt: 'Warum wahre Perfektion im Garten erst durch die natürliche Patina von Materialien wie Naturstein, Kupfer und Cortenstahl entsteht.', img: '/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg' },
-        { title: 'Stille als Luxusgut', cat: 'Design-Ethos', excerpt: 'In einer lauten Welt wird der private Außenraum zum letzten Refugium der ungestörten Kontemplation. Ein Plädoyer für den akustischen Rückzug.', img: '/img/Schrittplatten-Wasservorhang-rote-Waende-Holzdeck-Pergola-Aussenkueche-Wasserbecken-Liegen-Rasen-Schaugarten-scaled.jpg' },
-        { title: 'Smart Garden Ecosystems', cat: 'Technik', excerpt: 'Wie autarke Bewässerungssysteme und vernetzte Sensortechnik die Vitalität exklusiver Bepflanzungen auch bei Klimaveränderungen sichern.', img: '/img/Wohnen-Garten-Schwimmteich-Daemmerung-Lounge-Licht-Gaerten-des-Jahres-scaled.jpg' },
+        { title: 'Stille als Luxusgut', cat: 'Design-Ethos', excerpt: 'In einer lauten Welt wird der private Außenraum zum letzten Refugium der ungestörten Kontemplation. Ein Plädoyer für den akustischen Rückzug.', img: '/img/Schrittplatten-Wasservorhang-rote-Waende-Holzdeck-Pergola-Aussenkueche-Wasserbecken-Liegen-Rasen-Schaugarten-1024x683.jpg' },
+        { title: 'Smart Garden Ecosystems', cat: 'Technik', excerpt: 'Wie autarke Bewässerungssysteme und vernetzte Sensortechnik die Vitalität exklusiver Bepflanzungen auch bei Klimaveränderungen sichern.', img: '/img/Schwimmteich-Steg-Baden-Wellness-Skandinavien-Oase-1024x683.jpg' },
         { title: 'Handwerk als Fundament', cat: 'Einblick', excerpt: 'Hinter jedem preisgekrönten Design steht ein Team aus Meistern, die Pläne mit Leidenschaft und Präzision in die Realität übersetzen.', img: '/img/Gaerten-von-Hoerschelmann-bei-der-Arbeit-kunstvolle-Gaerten-aus-einer-Hand-Gartenarchitekt-Gartenbau-grosse-Pflanzen-Fachleute-Gartenkomponist-active-01-1024x683.jpg' }
     ],
     projects: [
@@ -229,7 +229,7 @@ export const CONTENT = {
             name: 'Heiko Krämer',
             role: 'Dirigent der Baustelle',
             desc: 'Bauleiter & Meister. Als technisches Korrektiv transformiert er Sörens Partitur mit höchster handwerklicher Präzision und technischem Sachverstand in die Realität.',
-            img: '/img/Gaerten-von-Hoerschelmann-bei-der-Arbeit-kunstvolle-Gaerten-aus-einer-Hand-Gartenarchitekt-Gartenbau-grosse-Pflanzen-Fachleute-Gartenkomponist-kompetentes-Team-1024x683.jpg'
+            img: '/img/Gaerten-von-Hoerschelmann-bei-der-Arbeit-kunstvolle-Gaerten-aus-einer-Hand-Gartenarchitekt-Gartenbau-grosse-Pflanzen-Fachleute-Gartenkomponist-active-01-1024x683.jpg'
         },
         {
             name: 'Sören von Hoerschelmann',
