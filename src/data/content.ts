@@ -234,7 +234,7 @@ export const CONTENT = {
         {
             name: 'Sören von Hoerschelmann',
             role: 'Landschaftskomponist',
-            desc: 'Inhaber & Visionär. Er vereint die Freiheit des Künstlers mit der Präzision des Architekten.',
+            desc: 'Seit über 25 Jahren widmet sich Sören von Hoerschelmann der Erschaffung von Außenräumen, die über das Dekorative hinausgehen. Als interdisziplinärer Experte vereint er die präzise Vision des Architekten mit dem tiefen Wissen des Gärtners. Ein Garten ist für ihn eine lebendige Partitur, die mit dem Rhythmus der Jahreszeiten spielt und dem Haus eine Seele gibt.',
             img: '/img/Soeren-von-Hoerschelmann-Landschaftsarchitekt-Landschaftskomponist-Geschaeftsfuehrer-Gaerten-von-Hoerschelmann-Experte-Planer-Beratung-Planung-scaled.jpg'
         }
     ],
