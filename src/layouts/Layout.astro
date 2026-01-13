@@ -34,7 +34,7 @@ const globalSchema = JSON.stringify({
     "@type": "Person",
     "name": "Sören von Hoerschelmann"
   },
-  "image": "https://gaertenvonhoerschelmann.de/img/Wohnen-Garten-Blick-aus-der-Terrassentuer-Rahmen-Parrotie-Eisenholz-Gaerten-des-Jahres-scaled.jpg",
+  "image": "https://gaertenvonhoerschelmann.de/img/Wohnen-Garten-Blick-auf-das-Haus-Daemmerung-Terrasse-Pflanzen-Parrotie-Eisenholz-Gaerten-des-Jahres-1024x683.jpg",
   "priceRange": "$$$",
   "areaServed": ["Hamburg", "Lauenburg", "Sylt", "Kitzbühel"],
   "openingHours": "Mo-Fr 08:00-18:00"
@@ -196,9 +196,16 @@ const globalSchema = JSON.stringify({
 
         <script is:inline>
             // Immediate check to prevent flash if already visited
-            if (sessionStorage.getItem('visited')) {
+            if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('visited')) {
                 const loader = document.getElementById('preloader');
-                if (loader) loader.style.display = 'none';
+                if (loader) {
+                    loader.style.display = 'none';
+                    loader.style.opacity = '0';
+                    loader.style.pointerEvents = 'none';
+                } else {
+                     // Fallback if DOM not ready (rare but safe)
+                     document.write('<style>#preloader { display: none !important; opacity: 0 !important; pointer-events: none !important; }</style>');
+                }
             }
         </script>
 
@@ -210,11 +217,11 @@ const globalSchema = JSON.stringify({
             // Preloader logic
             window.addEventListener('load', () => {
                 const loader = document.getElementById('preloader');
-                if (!sessionStorage.getItem('visited')) {
+                if (typeof sessionStorage !== 'undefined' && !sessionStorage.getItem('visited')) {
                     setTimeout(() => {
                         if(loader) loader.classList.add('fade-out');
                         sessionStorage.setItem('visited', 'true');
-                    }, 800);
+                    }, 500);
                 }
             });
 

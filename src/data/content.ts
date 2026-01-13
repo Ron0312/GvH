@@ -197,7 +197,7 @@ export const CONTENT = {
         { src: '/img/Goennewein-Pers-3-1024x704.jpg', desc: 'Perspektivische Zeichnung' },
         { src: '/img/Bildschirmfoto-2020-02-03-um-17.44.56-1024x712.png', desc: 'CAD Masterplanung' },
         { src: '/img/Gaerten-von-Hoerschelmann-bei-der-Arbeit-kunstvolle-Gaerten-aus-einer-Hand-Gartenarchitekt-Gartenbau-grosse-Pflanzen-Fachleute-Gartenkomponist-active-01-1024x683.jpg', desc: 'Präzisionsarbeit vor Ort' },
-        { src: '/img/Gaerten-von-Hoerschelmann-bei-der-Arbeit-kunstvolle-Gaerten-aus-einer-Hand-Gartenarchitekt-Gartenbau-grosse-Pflanzen-Fachleute-Gartenkomponist-kompetentes-Team-Besprechung-1024x683.jpg', desc: 'Team-Briefing' }
+        { src: '/img/Gaerten-von-Hoerschelmann-bei-der-Arbeit-kunstvolle-Gaerten-aus-einer-Hand-Gartenarchitekt-Gartenbau-grosse-Pflanzen-Fachleute-Gartenkomponist-kompetentes-Team-1024x683.jpg', desc: 'Team-Briefing' }
     ],
     details: [
         { src: '/img/Wasserschale-Cortenstahl-Beet-1024x683.jpg', alt: 'Cortenstahl Wasserschale' },
@@ -229,13 +229,13 @@ export const CONTENT = {
             name: 'Heiko Krämer',
             role: 'Dirigent der Baustelle',
             desc: 'Bauleiter & Meister. Als technisches Korrektiv transformiert er Sörens Partitur mit höchster handwerklicher Präzision und technischem Sachverstand in die Realität.',
-            img: '/img/Heiko-Kraemer-Gaerten-von-Hoerschelmann-Techniker-Gartenbau-Bauleiter-Profi-Experte-scaled.jpeg'
+            img: '/img/Gaerten-von-Hoerschelmann-bei-der-Arbeit-kunstvolle-Gaerten-aus-einer-Hand-Gartenarchitekt-Gartenbau-grosse-Pflanzen-Fachleute-Gartenkomponist-kompetentes-Team-1024x683.jpg'
         },
         {
             name: 'Sören von Hoerschelmann',
             role: 'Landschaftskomponist',
             desc: 'Inhaber & Visionär. Er vereint die Freiheit des Künstlers mit der Präzision des Architekten.',
-            img: '/img/Soeren-von-Hoerschelmann-Landschaftsarchitekt-Landschaftskomponist-Geschaeftsfuehrer-Gaerten-von-Hoerschelmann-Experte-Planer-Beratung-Planung-Geschaeftsfuehrung-scaled.jpg'
+            img: '/img/Soeren-von-Hoerschelmann-Landschaftsarchitekt-Landschaftskomponist-Geschaeftsfuehrer-Gaerten-von-Hoerschelmann-Experte-Planer-Beratung-Planung-scaled.jpg'
         }
     ],
     process: [

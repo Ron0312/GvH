@@ -1,0 +1,25 @@
+
+> gaerten-von-hoerschelmann@0.0.1 dev
+> astro dev
+
+16:20:49 [types] Generated 1ms
+16:20:49 [content] Syncing content
+16:20:49 [content] Synced content
+16:20:49 [vite] Port 4321 is in use, trying another one...
+
+ astro  v5.16.9 ready in 921 ms
+
+┃ Local    http://localhost:4322/
+┃ Network  use --host to expose
+
+16:20:49 watching for file changes...
+16:21:26 [200] / 1488ms
+16:21:29 [200] /philosophie 20ms
+16:22:04 [200] / 14ms
+16:22:09 [200] /philosophie 7ms
+16:26:29 [watch] src/data/content.ts
+16:26:29 [watch] src/data/content.ts
+16:26:52 [watch] src/components/Navigation.astro
+16:26:52 [watch] src/components/Navigation.astro
+16:27:04 [200] / 183ms
+16:27:09 [200] /philosophie 12ms
