@@ -46,7 +46,7 @@ const globalSchema = JSON.stringify({
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 
@@ -89,21 +89,9 @@ const globalSchema = JSON.stringify({
 
             // Custom Cursor with advanced mode
             if (window.matchMedia("(min-width: 1024px)").matches) {
-                const cursorDot = document.createElement('div');
-                cursorDot.classList.add('custom-cursor');
-                cursorDot.id = 'cursor-dot';
-
-                const cursorOutline = document.createElement('div');
-                cursorOutline.classList.add('custom-cursor-outline');
-                cursorOutline.id = 'cursor-outline';
-
-                const cursorText = document.createElement('div');
-                cursorText.classList.add('cursor-text');
-                cursorText.id = 'cursor-text';
-                cursorOutline.appendChild(cursorText);
-
-                document.body.appendChild(cursorDot);
-                document.body.appendChild(cursorOutline);
+                const cursorDot = document.getElementById('cursor-dot');
+                const cursorOutline = document.getElementById('cursor-outline');
+                const cursorText = document.getElementById('cursor-text');
 
                 let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0, outX = 0, outY = 0;
 
@@ -113,13 +101,13 @@ const globalSchema = JSON.stringify({
                 });
 
                 const animateCursor = () => {
-                    dotX += (mouseX - dotX) * 0.2;
-                    dotY += (mouseY - dotY) * 0.2;
-                    outX += (mouseX - outX) * 0.1;
-                    outY += (mouseY - outY) * 0.1;
+                    dotX += (mouseX - dotX) * 0.15;
+                    dotY += (mouseY - dotY) * 0.15;
+                    outX += (mouseX - outX) * 0.08;
+                    outY += (mouseY - outY) * 0.08;
 
-                    cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
-                    cursorOutline.style.transform = `translate3d(${outX}px, ${outY}px, 0) translate(-50%, -50%)`;
+                    if(cursorDot) cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+                    if(cursorOutline) cursorOutline.style.transform = `translate3d(${outX}px, ${outY}px, 0) translate(-50%, -50%)`;
 
                     requestAnimationFrame(animateCursor);
                 };
@@ -133,13 +121,37 @@ const globalSchema = JSON.stringify({
                 const txt = document.getElementById('cursor-text');
                 if(out && txt) {
                     if(active) {
-                        out.classList.add('hover-active');
-                        if(text) txt.innerText = text;
+                         out.style.width = '70px'; out.style.height = '70px';
+                         out.style.background = 'rgba(210, 180, 140, 0.08)';
+                         txt.style.opacity = '1';
+                         if(text) txt.innerText = text;
                     } else {
-                        out.classList.remove('hover-active');
+                         out.style.width = '40px'; out.style.height = '40px';
+                         out.style.background = 'transparent';
+                         txt.style.opacity = '0';
                     }
                 }
             };
+
+            // Magnetic Element Logic
+             const magneticElements = document.querySelectorAll('.magnetic-wrap');
+             magneticElements.forEach(el => {
+                if (window.innerWidth < 1024) return;
+                const strength = 0.3; // Default strength, could be parsed from attribute if needed
+
+                el.addEventListener('mousemove', (e) => {
+                    const { clientX, clientY } = e;
+                    const { left, top, width, height } = el.getBoundingClientRect();
+                    const x = (clientX - (left + width / 2)) * strength;
+                    const y = (clientY - (top + height / 2)) * strength;
+                    el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+                });
+
+                el.addEventListener('mouseleave', () => {
+                     el.style.transform = `translate3d(0, 0, 0)`;
+                });
+             });
+
 
             // Season Switch Logic
             const month = new Date().getMonth(); // 0-11
@@ -153,24 +165,33 @@ const globalSchema = JSON.stringify({
             // Scroll Progress
             const progressBar = document.createElement('div');
             progressBar.classList.add('scroll-progress');
+            progressBar.id = 'scrollBar';
             document.body.appendChild(progressBar);
 
             window.addEventListener('scroll', () => {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                progressBar.style.width = scrolled + "%";
+                const y = window.scrollY;
+                const bar = document.getElementById("scrollBar");
+                if(bar) bar.style.width = (y / (document.documentElement.scrollHeight - window.innerHeight)) * 100 + "%";
             });
 
         </script>
 	</head>
 	<body class="season-default">
-        <!-- Loader: Resonanz -->
+        <!-- Scroll Progress (Added in JS, but also in user HTML as explicit div) -->
+        <!-- User HTML has <div class="scroll-progress" id="scrollBar" aria-hidden="true"></div> in body, handled by JS above -->
+
+        <!-- Custom Cursor -->
+        <div id="cursor-dot" class="custom-cursor hidden lg:block"></div>
+        <div id="cursor-outline" class="custom-cursor-outline hidden lg:block">
+            <span id="cursor-text" class="cursor-text">Details</span>
+        </div>
+
+        <!-- Loader: User Version -->
         <div id="preloader" class="preloader">
-            <div class="resonance-container">
-                <div class="resonance-circle"></div>
-            </div>
             <div class="loader-logo">Gaerten von Hoerschelmann</div>
+            <div class="loader-bar-container">
+                <div class="loader-bar-fill"></div>
+            </div>
         </div>
 
         <Soundscape client:idle />
@@ -179,12 +200,12 @@ const globalSchema = JSON.stringify({
 
         <script>
             // Preloader logic
+            // User code: setTimeout(() => setLoading(false), 1200);
             window.addEventListener('load', () => {
                 const loader = document.getElementById('preloader');
-                // Ensure animation has time to be seen
                 setTimeout(() => {
                     if(loader) loader.classList.add('fade-out');
-                }, 1500);
+                }, 1200);
             });
 
             // Intersection Observer for reveals
