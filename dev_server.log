@@ -23,3 +23,9 @@
 16:26:52 [watch] src/components/Navigation.astro
 16:27:04 [200] / 183ms
 16:27:09 [200] /philosophie 12ms
+16:46:15 [watch] src/pages/index.astro
+16:46:15 [watch] src/pages/index.astro
+16:46:27 [watch] src/pages/index.astro
+16:46:27 [watch] src/pages/index.astro
+16:47:30 [200] / 590ms
+16:47:37 [200] /philosophie 9ms
