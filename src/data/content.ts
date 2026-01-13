@@ -64,8 +64,102 @@ export const CONTENT = {
         { title: 'Smart Garden Ecosystems', cat: 'Technik', excerpt: 'Wie autarke Bewässerungssysteme und vernetzte Sensortechnik die Vitalität exklusiver Bepflanzungen auch bei Klimaveränderungen sichern.', img: '/img/Wohnen-Garten-Schwimmteich-Daemmerung-Lounge-Licht-Gaerten-des-Jahres-scaled.jpg' }
     ],
     projects: [
-        { id: 'lauenburg', title: 'Der schwebende Garten', location: 'Lauenburg / Elbe', tags: ['Hanglage', 'Cortenstahl', 'Solitäre'], phases: { challenge: 'Ein 45°-Hanggelände am Elbufer, das statisch als unbaubar galt.', vision: 'Kaskaden aus Cortenstahl fangen den Hang auf und bilden nutzbare Ebenen.', result: 'Ein preisgekrönter Ort, der die Topographie als skulpturale Bühne nutzt und auch im Winter durch klare Linien besticht.' } },
-        { id: 'harvestehude', title: 'Urbanes Refugium', location: 'Hamburg Harvestehude', tags: ['Atrium', 'Privatsphäre', 'Formgehölze'], phases: { challenge: 'Ein begrenztes Areal inmitten dichter Architektur und fremder Sichtachsen im Alsterviertel.', vision: 'Ein modernes Atrium-konzept mit natürlichen Sichtfiltern und botanischer Tiefenstaffelung.', result: 'Ein grüner Diamant im Herzen der Hansestadt, der absolute Intimität und Ganzjahres-Ästhetik garantiert.' } }
+        {
+            id: 'lauenburg',
+            title: 'Der schwebende Garten',
+            location: 'Lauenburg / Elbe',
+            tags: ['Hanglage', 'Cortenstahl', 'Solitäre'],
+            phases: {
+                challenge: 'Ein 45°-Hanggelände am Elbufer, das statisch als unbaubar galt.',
+                vision: 'Kaskaden aus Cortenstahl fangen den Hang auf und bilden nutzbare Ebenen.',
+                result: 'Ein preisgekrönter Ort, der die Topographie als skulpturale Bühne nutzt und auch im Winter durch klare Linien besticht.'
+            },
+            img: '/img/Kiesflaechen-Wasserstein-Bepflanzung-Gaerten-des-Jahres-scaled.jpg'
+        },
+        {
+            id: 'harvestehude',
+            title: 'Urbanes Refugium',
+            location: 'Hamburg Harvestehude',
+            tags: ['Atrium', 'Privatsphäre', 'Formgehölze'],
+            phases: {
+                challenge: 'Ein begrenztes Areal inmitten dichter Architektur und fremder Sichtachsen im Alsterviertel.',
+                vision: 'Ein modernes Atrium-konzept mit natürlichen Sichtfiltern und botanischer Tiefenstaffelung.',
+                result: 'Ein grüner Diamant im Herzen der Hansestadt, der absolute Intimität und Ganzjahres-Ästhetik garantiert.'
+            },
+            img: '/img/Schrittplatten-Wasservorhang-rote-Waende-Holzdeck-Pergola-Aussenkueche-Wasserbecken-Liegen-Rasen-Schaugarten-scaled.jpg'
+        },
+        {
+            id: 'amphitheater',
+            title: 'Amphietheater aus Kalkstein',
+            location: 'Privatgarten',
+            tags: ['Naturstein', 'Kalkstein', 'Amphietheater'],
+            phases: {
+                challenge: 'Integration einer grosszügigen Sitzlandschaft in bewegtes Gelände.',
+                vision: 'Ein klassisches Amphietheater aus regionalem Kalkstein als Zentrum der Begegnung.',
+                result: 'Eine zeitlose Arena, die Architektur und Naturstein harmonisch verbindet.'
+            },
+            img: '/img/Amphietheater-Naturstein-Kalkstein-1024x767.jpg'
+        },
+        {
+            id: 'dachgarten',
+            title: 'Dachgarten Refugium',
+            location: 'Urban',
+            tags: ['Dachgarten', 'Sichtschutz', 'Naturstein'],
+            phases: {
+                challenge: 'Schaffung von Privatsphäre und Grünraum auf begrenzter Dachfläche.',
+                vision: 'Ein grünes Wohnzimmer über den Dächern der Stadt mit klarem Sichtschutz.',
+                result: 'Ein exklusiver Rückzugsort mit Weitblick und Geborgenheit.'
+            },
+            img: '/img/Dachgarten-Naturstein-Sichtschutz-1024x768.jpg'
+        },
+        {
+            id: 'koibecken',
+            title: 'Koibecken mit Glas',
+            location: 'Privatgarten',
+            tags: ['Koi', 'Wasser', 'Glas'],
+            phases: {
+                challenge: 'Bau eines artgerechten Koibeckens mit visueller Verbindung zum Wohnraum.',
+                vision: 'Ein architektonisches Wasserbecken mit Glaswänden für direkte Einblicke.',
+                result: 'Ein lebendiges Kunstwerk, das Wasserwelt und Terrasse verschmelzen lässt.'
+            },
+            img: '/img/Koibecken-Glasscheiben-Mauer-1024x683.jpg'
+        },
+        {
+            id: 'stadtgarten',
+            title: 'Stadtgarten Senkgarten',
+            location: 'Stadt',
+            tags: ['Lamellendach', 'Senkgarten', 'Schatten'],
+            phases: {
+                challenge: 'Maximale Raumnutzung und Beschattung in einem kompakten Stadtgarten.',
+                vision: 'Ein tiefergelegter Senkgarten mit flexiblem Lamellendach für jede Witterung.',
+                result: 'Ein multifunktionaler Außenraum, der Geborgenheit und Offenheit vereint.'
+            },
+            img: '/img/Lamellendach-Stadtgarten-Senkgarten-Schatten-Wohnen-im-Garten-Gaerten-des-Jahres-1024x683.jpg'
+        },
+        {
+            id: 'schwimmteich',
+            title: 'Nordischer Schwimmteich',
+            location: 'Skandinavien',
+            tags: ['Schwimmteich', 'Wellness', 'Holzsteg'],
+            phases: {
+                challenge: 'Natürliches Badeerlebnis mit nordischer Klarheit.',
+                vision: 'Ein weitläufiger Schwimmteich mit Holzstegen und skandinavischer Bepflanzung.',
+                result: 'Eine Wellness-Oase, die das Gefühl des Nordens in den Garten holt.'
+            },
+            img: '/img/Schwimmteich-Steg-Baden-Wellness-Skandinavien-1024x683.jpg'
+        },
+        {
+            id: 'stahlhalme',
+            title: 'Stahlhalme & Pflanzenzimmer',
+            location: 'Gartenraum',
+            tags: ['Stahl', 'Pflanzenzimmer', 'Sandstein'],
+            phases: {
+                challenge: 'Strukturierung eines großen Gartens ohne massive Wände.',
+                vision: 'Filigrane Stahlhalme und dichte Pflanzungen bilden transparente Räume.',
+                result: 'Ein Garten der Entdeckungen mit fließenden Übergängen und spannenden Blickachsen.'
+            },
+            img: '/img/Stahlhalme-Gartenraum-Pflanzenzimmer-Gaerten-des-Jahres-Brunnen-Sandstein-1024x683.jpg'
+        }
     ],
     testimonials: [
         { text: "Gaerten von Hoerschelmann plant nicht nur einen Garten. Sie erschaffen eine Welt, die sich mit jeder Jahreszeit neu erzählt und im Alter an Würde gewinnt.", author: "Unternehmerfamilie, Elbvororte", year: "2024" },
