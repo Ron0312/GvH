@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Seite nicht gefunden | Gaerten von Hoerschelmann";
+const description = "Die angeforderte Seite existiert nicht.";
+---
+
+<Layout title={title} description={description}>
+    <section class="min-h-screen flex items-center justify-center bg-[#1A1A1A] text-white px-6">
+        <div class="text-center max-w-2xl">
+            <span class="text-[#D2B48C] text-sm uppercase tracking-[0.5em] block mb-8 font-bold italic">404</span>
+            <h1 class="text-5xl md:text-7xl font-serif italic mb-10">Stille.</h1>
+            <p class="text-xl md:text-2xl text-white/40 font-light italic leading-relaxed mb-16">
+                Diese Seite ist noch nicht komponiert oder wurde neu arrangiert.
+            </p>
+            <a href="/" class="px-12 py-5 border border-white/30 uppercase text-[10px] font-black tracking-widest text-white hover:bg-white hover:text-black transition-all inline-block">
+                Zur Ouvertüre
+            </a>
+        </div>
+    </section>
+</Layout>
