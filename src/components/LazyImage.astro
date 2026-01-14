@@ -15,7 +15,7 @@ const { src, alt, className = "", aspect = "aspect-square", autoColor = false, s
     <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         alt={alt}
-        class={`w-full h-full object-cover transition-all duration-1000 opacity-0 scale-110 lazy-image will-change-transform group-hover:scale-105`}
+        class={`w-full h-full object-cover transition-all duration-1000 opacity-0 scale-105 lazy-image group-hover:scale-[1.02] ${autoColor ? 'grayscale' : ''}`}
         loading="lazy"
     />
 
@@ -40,7 +40,7 @@ const { src, alt, className = "", aspect = "aspect-square", autoColor = false, s
                     img.src = src;
                     img.onload = () => {
                         container.classList.remove('img-placeholder');
-                        img.classList.remove('opacity-0', 'scale-110');
+                        img.classList.remove('opacity-0', 'scale-105');
                         img.classList.add('opacity-100', 'scale-100');
 
                         if (autoColor) {

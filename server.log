@@ -1,0 +1,16 @@
+
+> gaerten-von-hoerschelmann@0.0.1 dev
+> astro dev
+
+16:53:25 [types] Generated 1ms
+16:53:25 [content] Syncing content
+16:53:25 [content] Synced content
+16:53:25 [vite] Port 4321 is in use, trying another one...
+
+ astro  v5.16.9 ready in 625 ms
+
+┃ Local    http://localhost:4322/
+┃ Network  use --host to expose
+
+16:53:25 watching for file changes...
+16:54:19 [200] / 676ms
