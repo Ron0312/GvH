@@ -10,7 +10,7 @@ def run():
 
         # 1. Home Page - Initial State
         print("Navigating to Home...")
-        page.goto("http://localhost:4322/")
+        page.goto("http://localhost:4321/")
 
         # Wait for loader to finish (animation is ~1s total + timeout 500ms)
         print("Waiting for loader...")
@@ -41,7 +41,7 @@ def run():
 
         # 3. Philosophy Page - Initial State (Subpage)
         print("Navigating to Philosophy...")
-        page.goto("http://localhost:4322/philosophie")
+        page.goto("http://localhost:4321/philosophie")
         page.wait_for_timeout(1000) # Wait for render
 
         # Verify Header is white/dark text IMMEDIATELY
